@@ -24,7 +24,7 @@ Community volunteers help translate this documentation into several languages. T
 ========================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    home
    getstarted
