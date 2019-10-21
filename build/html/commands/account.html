@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>账户管理 &mdash; Bithumb Chain 文档 master 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="信息获取" href="info.html" />
+    <link rel="prev" title="节点部署" href="running_node.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function.html">Bithumb Chain功能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">快速开始</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect_to_client.html">连接到Bithumb Chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_usage.html">命令行索引</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_node.html">节点部署</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">账户管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">签名算法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">创建账户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">查看账户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">修改账户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">导入账户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">常见问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="info.html">信息获取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asset.html">资产管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resource.html">资源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ram.html">内存管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="token.html">一键资产映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xns.html">域名管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">交易相关</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../command.html">Bithumb Chain客户端</a> &raquo;</li>
+        
+      <li>账户管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/commands/account.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>账户管理<a class="headerlink" href="#" title="永久链接至标题">¶</a></h1>
+<p>Bithumb Chain链上的账户就是地址，跟其他区块链一样地址是整个系统的最小单位，上面存放了钱和其他资源。Bithumb Chain链上的账户分为<code class="docutils literal notranslate"><span class="pre">普通账户</span></code>和<code class="docutils literal notranslate"><span class="pre">合约账户</span></code>，<code class="docutils literal notranslate"><span class="pre">普通账户</span></code>就是单纯的地址，有公私钥；<code class="docutils literal notranslate"><span class="pre">合约账户</span></code>是由系统账户合约发行的标准化合约，有特定的方法集，符合合约账户的标准；合约账户不是必须存在的，仅在用户对账户权限有更细粒度的控制需求时可以特别申请使用。</p>
+<p>每个合约账户都有三个默认权限，称为<code class="docutils literal notranslate"><span class="pre">owner</span></code>、<code class="docutils literal notranslate"><span class="pre">active</span></code>和<code class="docutils literal notranslate"><span class="pre">payer</span></code>。同时开发者们还可以提出自定义action授权。每个权限的使用都需要对应的公钥地址授权，必须有对应的私钥进行签署授权。</p>
+<p>为了方便用户记忆，每个账户支持申请别名（也就是域名），一个地址可以绑定多个别名。具体请参照XNS管理。</p>
+<p>Bithumb Chain客户端 <code class="docutils literal notranslate"><span class="pre">Bithumbchain-CLI</span></code> 提供了钱包管理模块，可以在命令行中通过 <code class="docutils literal notranslate"><span class="pre">wallet</span></code> 命令实现：</p>
+<ul class="simple">
+<li><p>对钱包账户的增加、删除、查看、修改。</p></li>
+<li><p>对钱包账户的导入导出。</p></li>
+</ul>
+<p>此外，你可以通过 <code class="docutils literal notranslate"><span class="pre">help</span></code> 命令获取钱包管理模块的帮助信息 。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli wallet <span class="nb">help</span>
+NAME:
+  xtar-cli wallet - Manage all keys in key store
+
+USAGE:
+  xtar-cli wallet <span class="o">[</span>options<span class="o">]</span> <span class="nb">command</span> <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+  
+VERSION:
+  <span class="m">0</span>.0.1
+  
+COMMANDS:
+  new     Create a new key
+  list    Print all keys list exist in key store
+  update  Update an existing key
+  import  Import a private key into a new key
+  help, h  Shows a list of commands or <span class="nb">help</span> <span class="k">for</span> one <span class="nb">command</span>
+  
+MISC OPTIONS:
+  --help, -h   show <span class="nb">help</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=签名算法">签名算法</a><a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>Bithumb Chain客户端 Bithumbchain-CLI<code class="docutils literal notranslate"><span class="pre">目前支持</span></code>ECDSA` 签名算法。</p>
+<p>要了解更多关于ECDSA 密钥曲线的信息，可以访问 <a class="reference external" href="https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf">NIST Digital Signature Standard (FIPS 186-3)</a>。</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=创建账户">创建账户</a><a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>要创建账户，使用 <code class="docutils literal notranslate"><span class="pre">new</span></code> 命令：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xtar-cli wallet new
+</pre></div>
+</div>
+<p>在添加账户的过程中，有输入密码和不输入密码两种模式，如果不想输入密码则需要使用 <code class="docutils literal notranslate"><span class="pre">--passwd</span> <span class="pre">&lt;path&gt;</span></code> 指定密码文件，也可以使用 <code class="docutils literal notranslate"><span class="pre">--lightkdf</span></code> 降低手机轻钱包的密钥导出级别。Keystore文件通过密码以加密形式存储在<DATADIR>/keystore。</p>
+<ul class="simple">
+<li><p>每个 <code class="docutils literal notranslate"><span class="pre">Keystore</span></code> 文件都应该有一个默认账户，一般情况下是第一个添加的账户，可以使用 <code class="docutils literal notranslate"><span class="pre">list</span></code> 命令查看默认账户。</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xtar-cli wallet list
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>默认账户不能被删除。</p></li>
+</ul>
+<p>在账户管理模块中， <code class="docutils literal notranslate"><span class="pre">new</span></code> 命令所支持的选项如下表所示，也可以通过 <code class="docutils literal notranslate"><span class="pre">--help</span></code> 选项获取帮助信息。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli wallet new --help
+XTAR OPTIONS:
+  --datadir &lt;path&gt;    Data &lt;path&gt; <span class="k">for</span> block chan data and keystore <span class="o">(</span>default: <span class="s2">&quot;Database&quot;</span><span class="o">)</span>
+  --keystore &lt;path&gt;   Key store &lt;path&gt;. <span class="o">(</span><span class="nv">default</span> <span class="o">=</span> inside the data dir<span class="o">)</span>
+
+ACCOUNT OPTIONS:
+  --passwd &lt;path&gt;     Password file &lt;path&gt; <span class="k">for</span> non-interactive input.
+  --lightkdf          Reduce key-derivation crypt level at mobile device
+</pre></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>–passwd: 指定默认密码文件的路径；</p></li>
+<li><p>–lightkdf: 指定降低手机轻钱包的密钥导出级别。</p></li>
+<li><p>同一个 <code class="docutils literal notranslate"><span class="pre">Keystore</span></code> 文件下，不能出现重复的账户标签。</p></li>
+<li><p>未设置账户标签的账户为空字符串。</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=查看账户">查看账户</a><a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>要查看 <code class="docutils literal notranslate"><span class="pre">Keystore</span></code> 文件中的账户列表，使用 <code class="docutils literal notranslate"><span class="pre">list</span></code> 命令：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli wallet list
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>账户在钱包中的索引 <code class="docutils literal notranslate"><span class="pre">Index</span></code> 从 0 开始。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code> 对应的账户为默认账户。</p></li>
+<li><p>客户端 <code class="docutils literal notranslate"><span class="pre">Bithumbchain-CLI</span></code> 支持通过索引 <code class="docutils literal notranslate"><span class="pre">Index</span></code>、账户地址 <code class="docutils literal notranslate"><span class="pre">Address</span></code> 以及非空账户标签 <code class="docutils literal notranslate"><span class="pre">Label</span></code> 来查找账户。</p></li>
+</ul>
+<p>在账户管理模块中，<code class="docutils literal notranslate"><span class="pre">list</span></code> 命令所支持的选项如下表所示，也可以通过 <code class="docutils literal notranslate"><span class="pre">--help</span></code> 选项获取帮助信息。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli wallet list --help
+XTAR OPTIONS:
+  --datadir &lt;path&gt;    Data &lt;path&gt; <span class="k">for</span> block chan data and keystore <span class="o">(</span>default: <span class="s2">&quot;Database&quot;</span><span class="o">)</span>
+  --keystore &lt;path&gt;   Key store &lt;path&gt;. <span class="o">(</span><span class="nv">default</span> <span class="o">=</span> inside the data dir<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=修改账户">修改账户</a><a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>要对账户进行修改，使用<code class="docutils literal notranslate"><span class="pre">update</span></code> 命令：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xtar-cli wallet update
+</pre></div>
+</div>
+<p>在账户管理模块中，<code class="docutils literal notranslate"><span class="pre">update</span></code> 命令所支持的选项如下表所示，也可以通过 <code class="docutils literal notranslate"><span class="pre">--help</span></code> 选项获取帮助信息。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xtar-cli wallet update <span class="nb">help</span>
+XTAR OPTIONS:
+  --datadir &lt;path&gt;    Data &lt;path&gt; <span class="k">for</span> block chan data and keystore <span class="o">(</span>default: <span class="s2">&quot;Database&quot;</span><span class="o">)</span>
+  --keystore &lt;path&gt;   Key store &lt;path&gt;. <span class="o">(</span><span class="nv">default</span> <span class="o">=</span> inside the data dir<span class="o">)</span>
+
+ACCOUNT OPTIONS:
+  --passwd &lt;path&gt;     Password file &lt;path&gt; <span class="k">for</span> non-interactive input.
+  --change-passwd     Change the password of a exist account
+  --lightkdf          Reduce key-derivation crypt level at mobile device
+</pre></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>–passwd: 指定默认密码文件的路径；</p></li>
+<li><p>–change-passwd: 修改账户密码；</p></li>
+<li><p>–lightkdf: 指定降低手机轻钱包的密钥导出级别；</p></li>
+<li><p>默认的钱包路径为 <code class="docutils literal notranslate"><span class="pre">.Database/keystore/*****.keystore</span></code>；</p></li>
+<li><p>同一个 <code class="docutils literal notranslate"><span class="pre">Keystore</span></code> 文件中，不能有两个相同的钱包标签。</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=导入账户">导入账户</a><a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>在账户管理模块中，<code class="docutils literal notranslate"><span class="pre">import</span></code> 命令用于将 <code class="docutils literal notranslate"><span class="pre">Keystore</span></code> 文件导入到钱包账户之中。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xtar-cli wallet import --passwd
+</pre></div>
+</div>
+<p>请在导入完成后彻底清除设备中的 <code class="docutils literal notranslate"><span class="pre">keystore</span></code> 文件或将其置于安全的位置。</p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=常见问题">常见问题</a><a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>什么是明文私钥？</p>
+<p>明文私钥是由（伪）随机数生成的，用来解锁对应钱包的一串字符。在交易场景下, 私钥用于生成交易所必须的签名，以证明资产的所有权。任何具有明文私钥的人，就能控制该私钥所对应的钱包账户。</p>
+</li>
+<li><p>什么是 <code class="docutils literal notranslate"><span class="pre">Keystore</span></code>？</p>
+<p><code class="docutils literal notranslate"><span class="pre">Keystore</span></code> 允许你以加密的方式存储私钥。私钥被自定义密码所加密，一旦忘记密码, 就失去了对 <code class="docutils literal notranslate"><span class="pre">Keystore</span></code> 的使用权。因此，一定要妥善保管好 <code class="docutils literal notranslate"><span class="pre">Keystore</span></code> 以及密码。</p>
+</li>
+<li><p>什么是助记词？</p>
+<p>助记词是私钥的另一种表现形式。最早是由 <code class="docutils literal notranslate"><span class="pre">BIP39</span></code> 提案提出, 其目的是为了帮助用户记忆复杂的私钥字符串。助记词一般由 12、15、18、21 个单词构成, 这些单词都取自一个固定词库, 其生成顺序也是按照一定算法而来。</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="info.html" class="btn btn-neutral float-right" title="信息获取" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="running_node.html" class="btn btn-neutral float-left" title="节点部署" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

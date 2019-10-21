@@ -1,0 +1,491 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Resource合约 &mdash; Bithumb Chain 文档 master 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Name Service合约" href="08name_service_v0.62.html" />
+    <link rel="prev" title="Global Params合约" href="06global_params.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../function.html">Bithumb Chain功能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00abi.html">智能合约ABI设计文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01BT.html">BT Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03token.html">Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04dex.html">DEX合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06global_params.html">Global Params合约</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Resource合约</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">可调用合约方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="08name_service_v0.62.html">Name Service合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09ram.html">RAM合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10dapp_name.html">Name Service(dApp)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11foundation_name.html">Name Service(Foundation)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12prime.html">Prime合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13authorization.html">Authorization合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14staking.html">Staking合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16timer.html">Timer合约</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../function.html">Bithumb Chain功能</a> &raquo;</li>
+        
+      <li>Resource合约</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functions/07resource.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="resource">
+<span id="resource"></span><h1>Resource合约<a class="headerlink" href="#resource" title="永久链接至标题">¶</a></h1>
+<p>resource合约用于查询Bithumb Chain平台的通过抵押（staking合约）获得的net、cpu、mine（挖矿）以及vote(投票)信息的合约。</p>
+<p>管理的资源分为：</p>
+<ul class="simple">
+<li><p>net：网络资源，用于网络通信</p></li>
+<li><p>cpu：cpu资源，用于在XTAR平台进行计算</p></li>
+</ul>
+<p>resource_manager合约功能：抵押资源、释放抵押资源、释放抵押资源的BT token、查询Cpu资源、查询Net资源、查询抵押信息的功能。</p>
+<p>合约地址：XagqqFetxiDb9wbartKDrXgnqLahuf6AQq</p>
+<div class="section" id="">
+<span id="id1"></span><h2>可调用合约方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>1、<strong>查看net</strong></p>
+<ul class="simple">
+<li><p>方法名称：getNet</p></li>
+<li><p>描述：为某一账户net网络资源的状况</p></li>
+<li><p>传入参数及其意义：</p></li>
+</ul>
+<ul class="simple">
+<li><p>传入一个account类型参数，表示被查询的用户</p></li>
+</ul>
+<ul>
+<li><p>返回值及其意义：</p>
+<ul class="simple">
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p></li>
+</ul>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>返回信息是一个结构体，代表该地址持有抵押的net信息：</p>
+<ol class="simple">
+<li><p>net的总量</p></li>
+<li><p>已经使用的net的数量</p></li>
+<li><p>剩余可使用的net总量</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>4、<strong>查询Cpu资源</strong></p>
+<ul class="simple">
+<li><p>方法名称：getCpu</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数表示被查询的地址</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>返回信息是一个结构体，代表该地址持有抵押的cpu信息：</p>
+<ol class="simple">
+<li><p>持有的cpu总量</p></li>
+<li><p>已经使用的cpu总量</p></li>
+<li><p>剩余可使用的cpu总量</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;cpuInfo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;totalCpu&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cpuUsage&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;usableCpu&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发event:</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>5、<strong>查询Mine挖矿资源</strong></p>
+<ul class="simple">
+<li><p>方法名称：getMineInfo</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数表示被查询的账户</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>返回信息是一个数组</p>
+<ol class="simple">
+<li><p>第一个参数表示该用户的挖矿权重</p></li>
+<li><p>表示总的挖矿权重</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;getMineInfo&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;inputs&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;outputs&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mineInfo&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stake&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发event:</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>6、<strong>查询投票权重</strong></p>
+<ul class="simple">
+<li><p>方法名称：getVoteWeight</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数表示被查询的账户</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>返回信息是一个uint64，表示投票权重</p>
+<ol class="simple">
+<li><p>第一个参数表示该用户的挖矿权重</p></li>
+<li><p>表示总的挖矿权重</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;getMineInfo&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;inputs&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&quot;outputs&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mineInfo&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stake&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发event:</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="08name_service_v0.62.html" class="btn btn-neutral float-right" title="Name Service合约" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="06global_params.html" class="btn btn-neutral float-left" title="Global Params合约" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

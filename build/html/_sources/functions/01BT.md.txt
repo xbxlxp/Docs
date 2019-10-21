@@ -1,0 +1,357 @@
+## BT Token合约
+
+BT Token合约是支撑XATR平台的基本价值BT Token运转的载体。BT Token合约支持BT Token：查询BT Token符号、查询精度、查询总发行量、转账、查询余额、授权转账、授期转账提现、查询授权提现剩余额度的功能。
+
+合约地址：XagqqFetxiDb9wbartKDrXgnqLah9fKoTx
+
+### 可调用合约方法
+
+1、**查询BT Token符号**
+
+* 方法名称：symbol
+
+* 传入参数及意义：
+  * 无（空数组）
+* 返回值及其意义：
+  * 返回一个[ContractArg](#xtar合约设计文档)合约参数
+    * 1.代表xtar token的符号
+      * 预期返回值为："xtar"
+
+```json
+{
+    "name":"symbol",
+    "type":"string"
+}
+```
+
+* 触发event：
+  * 无
+
+2、**查询精度**
+
+* 方法名称：decimal
+* 传入参数及其意义：
+  * 无（空数组）
+* 返回值及其意义
+  * 返回一个[ContractArg](#xtar合约设计文档)合约参数
+    * 1.代表BT Token的精度
+      * 预期返回值为：8
+
+```json
+{
+    "name":"decimal",
+    "type":"uint8"
+}
+```
+
+* 触发event：
+  - 无
+
+3、**查询总发行量**
+
+* 方法名称：totalSupply
+* 传入参数及其意义：
+  * 无（空数组）
+* 返回值及其意义：
+  * 返回一个[ContractArg](#xtar合约设计文档)合约参数
+    * 1.代表xtar token的总发行量
+      * 预期返回值：100000000000000000
+
+```json
+{
+  "name":"totalSupply",
+  "type":"uint64"
+}
+```
+
+* 触发event：
+  - 无
+
+4、**转账**
+
+* 方法名称：transfer
+* 传入参数及其意义：
+  * 传入一个[ContractArg](#xtar合约设计文档)合约参数
+    * 1. 该参数为一个数组，代表一笔交易的多个转账
+         1. 数组成员是一个转账结构，代表其中的转账实体，具有
+            1. 转出方
+            2. 接收方
+            3. 额度
+
+```json
+{
+  "name":"transferArgs",
+  "type":"array",
+  "components":[
+    {
+      "name":"transferArg",
+      "type":"struct",
+      "components":[
+        {
+          "name":"from",
+          "type":"account"
+        },
+        {
+          "name":"to",
+          "type":"account"
+        },
+        {
+          "name":"amount",
+          "type":"uint64"
+        }
+      ]
+    }
+  ]
+}
+```
+
+* 返回值及其意义：
+  * 无
+* 触发event:
+  * transfer
+* 返回eve_logs及其意义：
+  * 返回一个[ContractArg](#xtar合约设计文档)合约参数
+    - 1. 成员是一个转账结构的输入参数，第一个参数为event名称第二个开始代表其中的转账实体参数，具有
+         1. 合约方法
+         2. 转出方
+         3. 接收方
+         4. 额度
+
+```json
+{
+  "name":"from",
+  "type":"account"
+},
+{
+  "name":"to",
+  "type":"account"
+},
+{
+  "name":"amount",
+  "type":"uint64"
+}
+```
+
+5、**查询余额**
+
+* 方法名称：balanceOf
+* 传入参数及其意义：
+  * 传入一个[ContractArg](#xtar合约设计文档)合约参数
+    * 1.表示查询余额的地址
+
+```json
+{
+  "name":"account",
+  "type":"address"
+}
+```
+
+* 返回值及其意义：
+  * 返回一个[ContractArg](#xtar合约设计文档)合约参数
+    * 1.表示锁查询的地址余额
+    * 说明：8位精度
+
+```json
+{
+  "name":"balance",
+  "type":"uint64"
+}
+```
+
+* 触发event：
+  * 无
+
+6.**授权转账（开支票）**
+
+* 方法名称：approve
+* 描述：授权其他用户可从自己的账户提取一定额度的BT Token
+* 传入参数及其意义：
+  - 传入一个[ContractArg](#xtar合约设计文档)合约参数
+    - 1. 该参数为一个数组，代表一笔交易的多个转账
+         1. 数组成员是一个转账结构，代表其中的转账实体，具有
+            1. 转出方
+            2. 接收方
+            3. 额度
+
+```json
+{
+  "name":"transferArgs",
+  "type":"array",
+  "components":[
+    {
+      "name":"transferArg",
+      "type":"struct",
+      "components":[
+        {
+          "name":"from",
+          "type":"account"
+        },
+        {
+          "name":"to",
+          "type":"account"
+        },
+        {
+          "name":"amount",
+          "type":"uint64"
+        }
+      ]
+    }
+  ]
+}
+```
+
+* 返回值及其意义：
+  * 无
+
+* 触发event_log:
+  * approve
+
+7.**授期转账提现（使用支票）**
+
+* 方法名称：transferFrom
+* 描述：从授权提现的地址中提取BT Token
+* 传入参数及其意义：
+  - 传入一个[ContractArg](#xtar合约设计文档)合约参数
+    - 1. 该参数为一个数组，代表一笔交易的多个转账
+         1. 数组成员是一个转账结构，代表其中的转账实体，具有
+            1. 转出方
+            2. 接收方
+            3. 额度
+
+```json
+{
+  "name":"transferArgs",
+  "type":"array",
+  "components":[
+    {
+      "name":"transferArg",
+      "type":"struct",
+      "components":[
+        {
+          "name":"from",
+          "type":"account"
+        },
+        {
+          "name":"to",
+          "type":"account"
+        },
+        {
+          "name":"amount",
+          "type":"uint64"
+        }
+      ]
+    }
+  ]
+}
+```
+
+- 返回值及其意义：
+  - 无
+
+- 触发event_log:
+  - transfer
+
+8.**查询授权提现剩余额度（查询支票余额）**
+
+* 方法名称：allowance
+* 描述：从授权提现的地址中查询剩余可提现的额度
+* 传入参数及其意义：
+  - 传入两个[ContractArg](#xtar合约设计文档)合约参数
+    - 1.授权地址
+    - 2.提现地址
+
+```json
+{
+  "name":"from",
+  "type":"account"
+},
+{
+  "name":"to",
+  "type":"account"
+}
+```
+
+* 返回值及其意义：
+  * 剩余可提现额度
+
+```json
+{
+  "name":"balance",
+  "type":"uint64"
+}
+```
+
+* 触发event_log:
+  * 无
+
+### 可触发合约事件event
+
+1.**转账事件transfer**
+
+* event名称: transfer
+
+* 描述：记录发生过转账记录的收据
+
+* event_logs参数及其意义：
+
+  * 第一个参数为event名称
+
+    * 1.transfer
+
+  * 第二个参数开始代表其中的转账实体参数:
+
+    * 2.转出方
+
+    * 3.接收方
+
+    * 4.额度
+
+```json
+{
+  "name":"from",
+  "type":"account"
+},
+{
+  "name":"to",
+  "type":"account"
+},
+{
+  "name":"amount",
+  "type":"uint64"
+}
+```
+
+2.**授权提现事件approve**
+
+* event名称: approve
+
+* 描述：记录发生过的授权提现记录的收据
+
+* event_logs参数及其意义：
+
+  * 第一个参数为event名称
+
+    - 1.approve
+
+  * 第二个参数开始代表其中的授权提现实体参数:
+
+    - 2.授权转出方
+
+    - 3.授权接收方
+
+    - 4.额度
+
+```json
+        {
+          "name":"from",
+          "type":"account"
+        },
+        {
+          "name":"to",
+          "type":"account"
+        },
+        {
+          "name":"amount",
+          "type":"uint64"
+        }
+```

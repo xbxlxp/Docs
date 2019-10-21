@@ -1,0 +1,1152 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DEX合约 &mdash; Bithumb Chain 文档 master 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Global Params合约" href="06global_params.html" />
+    <link rel="prev" title="Token合约" href="03token.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../function.html">Bithumb Chain功能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00abi.html">智能合约ABI设计文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01BT.html">BT Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03token.html">Token合约</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DEX合约</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">可调用合约方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event">可触发合约事件event</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="06global_params.html">Global Params合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07resource.html">Resource合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08name_service_v0.62.html">Name Service合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09ram.html">RAM合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10dapp_name.html">Name Service(dApp)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11foundation_name.html">Name Service(Foundation)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12prime.html">Prime合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13authorization.html">Authorization合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14staking.html">Staking合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16timer.html">Timer合约</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../function.html">Bithumb Chain功能</a> &raquo;</li>
+        
+      <li>DEX合约</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functions/04dex.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dex">
+<span id="dex"></span><h1>DEX合约<a class="headerlink" href="#dex" title="永久链接至标题">¶</a></h1>
+<p>Dex合约是在Bithumb Chain公链平台上进行的去中心化交易所的合约。</p>
+<p>合约地址：XagqqFetxiDb9wbartKDrXgnqLahYeM9Eg</p>
+<div class="section" id="">
+<span id="id1"></span><h2>可调用合约方法<a class="headerlink" href="#" title="永久链接至标题">¶</a></h2>
+<p>1、<strong>查询在dex中的余额</strong></p>
+<ul class="simple">
+<li><p>方法名称：balanceOf</p></li>
+<li><p>描述：查询Bithumb Chain上去中心化交易所中余额</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数，该参数具有两个参数</p>
+<ul>
+<li><p>用户账户</p></li>
+<li><p>资产账户</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;balanceArg&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;asset&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>返回一个uint64表示余额：</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;balance&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;uint64&quot;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发event：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>2、<strong>往dex充值</strong></p>
+<ul class="simple">
+<li><p>方法名称：deposit</p></li>
+<li><p>描述：将链上资产充值到dex</p></li>
+<li><p>传入参数及意义：</p>
+<ul>
+<li><p>传入一个结构体，包含4个参数：</p>
+<ul>
+<li><p>发行资产的账户</p></li>
+<li><p>资产流出账户</p></li>
+<li><p>dex中的账户</p></li>
+<li><p>充值大小</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;depositArg&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;asset&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>transfer</p></li>
+</ul>
+</li>
+</ul>
+<p>3、<strong>从dex提现</strong></p>
+<ul class="simple">
+<li><p>方法名称：withdraw</p></li>
+<li><p>描述：将token从dex提现到账户</p></li>
+<li><p>传入参数及意义：</p></li>
+</ul>
+<ul>
+<li><ul class="simple">
+<li><ul>
+<li><p>传入一个结构体，包含4个参数：</p>
+<ul>
+<li><p>发行资产的账户</p></li>
+<li><p>资产流出账户</p></li>
+<li><p>dex中的账户</p></li>
+<li><p>提现大小</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;withdrawArg&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;asset&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p>
+<ul>
+<li><p>1.表示管理员地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>transfer</p></li>
+</ul>
+</li>
+</ul>
+<p>4、<strong>代理提现</strong></p>
+<ul class="simple">
+<li><p>方法名称：delegateWithdraw</p></li>
+<li><p>描述：通过代理人<code class="docutils literal notranslate"><span class="pre">relay</span></code>代理提现</p></li>
+<li><p>传入参数及意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数,为一个结构体</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delegateWithdraw&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dWithdrawArg&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;asset&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;amount&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fee&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;salt&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;extra&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;public_keys&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;public_key&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;publickey&quot;</span>
+                    <span class="p">}</span>
+                  <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;m&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;uint8&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig_data&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig_data&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;bytes&quot;</span>
+                    <span class="p">}</span>
+                  <span class="p">]</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;relay&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>Transfer</p></li>
+</ul>
+</li>
+</ul>
+<p>5、<strong>取消订单</strong></p>
+<ul class="simple">
+<li><p>方法名称：cancel</p></li>
+<li><p>描述：取消交易订单</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数,为一个结构体</p>
+<ul>
+<li><p>表示下定单者</p></li>
+<li><p>订单id</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cancelArg&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>cancelOrder</p></li>
+</ul>
+</li>
+</ul>
+<p>6、<strong>设置代理人</strong></p>
+<ul class="simple">
+<li><p>方法名称：setRelay</p></li>
+<li><p>描述：查询全局参数</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数，为一个结构体</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;setterArgs&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;target&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>setRelay</p></li>
+</ul>
+</li>
+</ul>
+<p>7、<strong>查询所有代理人</strong></p>
+<ul class="simple">
+<li><p>方法名称：relays</p></li>
+<li><p>描述：查询所有代理人</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数为一个数组</p>
+<ol class="simple">
+<li><p>数组成员为string,表示relay</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;relays&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;relay&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>8、<strong>查询订单状态</strong></p>
+<ul class="simple">
+<li><p>方法名称：orderState</p></li>
+<li><p>描述：查询订单状态</p></li>
+<li><p>传入参数及意义：</p>
+<ul>
+<li><p>传入string表示订单id</p></li>
+</ul>
+</li>
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>一个结构体，包含三个成员：</p></li>
+<li><p>用户</p>
+<ul>
+<li><p>已成交量</p></li>
+<li><p>是否已经取消</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;orderState&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;filled&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;canceled&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发event：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>9、<strong>撮合交易</strong></p>
+<ul class="simple">
+<li><p>方法名称：trade</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个结构体，具有三个结构体：</p>
+<ul>
+<li><p>maker下单信息</p></li>
+<li><p>taker下单信息</p></li>
+<li><p>relay代理人信息</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tradeArg&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;maker&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;version&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint32&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pair&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;side&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;amount&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fee&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;expire&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint32&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;salt&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;public_keys&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                        <span class="p">{</span>
+                          <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;public_key&quot;</span><span class="p">,</span>
+                          <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;publickey&quot;</span>
+                        <span class="p">}</span>
+                      <span class="p">]</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;m&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;uint8&quot;</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig_data&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                        <span class="p">{</span>
+                          <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig_data&quot;</span><span class="p">,</span>
+                          <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;bytes&quot;</span>
+                        <span class="p">}</span>
+                      <span class="p">]</span>
+                    <span class="p">}</span>
+                  <span class="p">]</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;taker&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;version&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint32&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pair&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;side&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;amount&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fee&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;expire&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint32&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;salt&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;public_keys&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                        <span class="p">{</span>
+                          <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;public_key&quot;</span><span class="p">,</span>
+                          <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;publickey&quot;</span>
+                        <span class="p">}</span>
+                      <span class="p">]</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;m&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;uint8&quot;</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig_data&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+                      <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+                        <span class="p">{</span>
+                          <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;sig_data&quot;</span><span class="p">,</span>
+                          <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;bytes&quot;</span>
+                        <span class="p">}</span>
+                      <span class="p">]</span>
+                    <span class="p">}</span>
+                  <span class="p">]</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;relay&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;trade_amount&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;maker_fee&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;taker_fee&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>trade</p></li>
+</ul>
+</li>
+</ul>
+<p>10、<strong>查询交易挖矿奖励</strong></p>
+<ul class="simple">
+<li><p>方法名称：bounus</p></li>
+<li><p>输入参数：</p>
+<ul>
+<li><p>查询的账户</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值：</p>
+<ul>
+<li><p>一个结构体,含有2成员</p>
+<ul>
+<li><p>锁定的奖励</p></li>
+<li><p>解锁的奖励</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;userBonus&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lockedBonus&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unlockedBonus&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>11、<strong>申请奖励解锁</strong></p>
+<ul class="simple">
+<li><p>方法名称：claimBonus</p></li>
+<li><p>输入参数：</p>
+<ul>
+<li><p>请求的账户</p></li>
+</ul>
+</li>
+<li><p>返回值：</p>
+<ul>
+<li><p>一个uint64,表示此次解锁的额度</p></li>
+</ul>
+</li>
+</ul>
+<p>12、<strong>设置可挖矿的用户及对应资产</strong></p>
+<ul class="simple">
+<li><p>方法名称：setMineable</p></li>
+<li><p>输入参数：</p>
+<ul>
+<li><p>一个结构体，含有三个参数：</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;setterArgs&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;target&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>13、<strong>查询可挖矿的资产列表</strong></p>
+<ul class="simple">
+<li><p>方法名称：mineable</p></li>
+<li><p>输入参数：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>返回值：</p>
+<ul>
+<li><p>一个列表</p>
+<ul>
+<li><p>成员为string</p></li>
+<li><p>表示可挖矿的资产列表</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>14、<strong>清除之前的挖矿奖励</strong></p>
+<ul class="simple">
+<li><p>方法名称：updateBonus</p></li>
+<li><p>输入参数：</p>
+<ul>
+<li><p>被清除的剩余挖矿奖励的账户</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值：</p></li>
+<li><p>无</p></li>
+</ul>
+</div>
+<div class="section" id="event">
+<span id="event"></span><h2>可触发合约事件event<a class="headerlink" href="#event" title="永久链接至标题">¶</a></h2>
+<p>1.<strong>请求转换管理员transferAdmin事件</strong></p>
+<ul class="simple">
+<li><p>event名称：transferAdmin</p></li>
+<li><p>描述：请求转换管理员的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.transferAdmin</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token注册后相关实体:</p>
+<ul>
+<li><p>2.旧的管理员地址</p></li>
+<li><p>3.新的管理员地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;:&quot;oldAdmin&quot;,
+  &quot;type&quot;:&quot;account&quot;
+},
+{
+  &quot;name&quot;:&quot;newAdmin&quot;,
+  &quot;type&quot;:&quot;account&quot;
+}
+</pre></div>
+</div>
+<p>2.<strong>接受成为新管理员acceptAdmin事件</strong></p>
+<ul class="simple">
+<li><p>event名称：acceptAdmin</p></li>
+<li><p>描述：接受成为新管理员的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.acceptAdmin</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token发行的相关参数：</p>
+<ul>
+<li><p>2.旧管理员地址</p></li>
+<li><p>3.新管理员地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;:&quot;oldAdmin&quot;,
+  &quot;type&quot;:&quot;account&quot;
+},
+{
+  &quot;name&quot;:&quot;newAdmin&quot;,
+  &quot;type&quot;:&quot;account&quot;
+}
+</pre></div>
+</div>
+<p>3.<strong>设置全局参数setParams事件</strong></p>
+<ul class="simple">
+<li><p>event名称：setParams</p></li>
+<li><p>描述：设置全局参数时返回的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.setParams</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token发行的相关参数：</p>
+<ul>
+<li><p>2.设置的全局参数的字符串表示</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;newParams&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>4.<strong>使得全局参数生效applyParams事件</strong></p>
+<ul class="simple">
+<li><p>event名称：applyParams</p></li>
+<li><p>描述：使得合约中方法setParams设置的全局参数生效</p></li>
+<li><p>event_logs及其参数：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.applyParams</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul>
+<li><p>2.所有全局参数及其值的字符串表示</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;params&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>5.<strong>设置操作人setOperator事件</strong></p>
+<ul class="simple">
+<li><p>event名称：setOperator</p></li>
+<li><p>描述：设置操作人</p></li>
+<li><p>event_logs及其参数：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.setOperator</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul>
+<li><p>2.新操作人地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;newOperator&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="06global_params.html" class="btn btn-neutral float-right" title="Global Params合约" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="03token.html" class="btn btn-neutral float-left" title="Token合约" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
