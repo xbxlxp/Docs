@@ -45,7 +45,7 @@ Here are the quick steps to achieve this on a local machine without depending on
 sudo pip install Sphinx
 sudo pip install sphinx_rtd_theme
 sudo pip install recommonmark==0.4.0
-cd xtar/docs # Be in this directory. Makefile sits there.
+cd bithumbchina/docs # Be in this directory. Makefile sits there.
 make html
 ```
 
