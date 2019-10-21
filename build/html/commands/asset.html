@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>资产管理 &mdash; Bithumb Chain 文档 V1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="资源管理" href="resource.html" />
+    <link rel="prev" title="信息获取" href="info.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function.html">Bithumb Chain功能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">快速开始</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect_to_client.html">连接到Bithumb Chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_usage.html">命令行索引</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_node.html">节点部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html">账户管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info.html">信息获取</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">资产管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">账户余额</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">转账</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">授权转账</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">授权查询</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">授权账户转账</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">常见问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resource.html">资源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ram.html">内存管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="token.html">一键资产映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xns.html">域名管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html">交易相关</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../command.html">Bithumb Chain客户端</a> &raquo;</li>
+        
+      <li>资产管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/commands/asset.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>资产管理<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<p>Bithumb Chain客户端 <code class="docutils literal notranslate"><span class="pre">xtar-CLI</span></code> 提供了资产管理模块，可以在命令行中通过 <code class="docutils literal notranslate"><span class="pre">asset</span></code> 命令实现：</p>
+<ul class="simple">
+<li><p>查询账户资产信息</p></li>
+<li><p>对账户资产进行控制，如执行 BT 转账，以及其他token的转账等</p></li>
+</ul>
+<p>此外，你可以通过 <code class="docutils literal notranslate"><span class="pre">help</span></code> 命令获取信息获取模块的帮助信息 。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xtar-cli asset <span class="nb">help</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=账户余额">账户余额</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>要查询指定账户在所接入网络中的余额信息，使用<code class="docutils literal notranslate"><span class="pre">balance</span></code> 命令。</p>
+<p>你可以在第一个终端启动本地测试网。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xtar-cli --testnet
+</pre></div>
+</div>
+<p>然后在第二个终端中查询指定账户在本地测试网中的账户余额。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset balance <span class="m">1</span>
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+XTAR balance:20
+$ xtar-cli asset balance AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+XTAR balance:20
+</pre></div>
+</div>
+<p>默认情况下查询的是指定账户的xtar账户余额，还可以使用<code class="docutils literal notranslate"><span class="pre">--asset-type</span></code> 命令指定查询其他token的余额，参数<code class="docutils literal notranslate"><span class="pre">--asset-type</span></code>后跟上其他token的地址。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset balance --asset-type 004ed82971fabb900ec1d582380e0fe11daf83a9 <span class="m">1</span>
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Token:004ed82971fabb900ec1d582380e0fe11daf83a9
+Balance:99990
+$ xtar-cli asset balance --asset-type 004ed82971fabb900ec1d582380e0fe11daf83a9 AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Token:004ed82971fabb900ec1d582380e0fe11daf83a9
+Balance:99990
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=转账">转账</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>在资产管理模块中，<code class="docutils literal notranslate"><span class="pre">transfer</span></code> 命令用于构造转账交易，可以转移 <code class="docutils literal notranslate"><span class="pre">BT</span></code> 或其他 <code class="docutils literal notranslate"><span class="pre">token</span></code> ，其包含以下参数：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--asset-type</span></code>：指定资产类型（<code class="docutils literal notranslate"><span class="pre">BT</span></code> 与 <code class="docutils literal notranslate"><span class="pre">其他token</span></code>）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--from</span></code>：指定转账交易的扣款账户或账户索引。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--to</span></code> ：指定转账交易的收款账户或账户索引。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--amount</span></code>：指定转账金额。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--disable-wait-evtlog</span></code>：关闭<code class="docutils literal notranslate"><span class="pre">event</span> <span class="pre">log</span></code>日志。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--print-tx,</span> <span class="pre">-t</span></code> ：预执行并打印十六进制的交易内容，不发送到网络。</p></li>
+</ul>
+<p>转移指定账户在所接入网络中的 <code class="docutils literal notranslate"><span class="pre">BT</span></code>。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$  xtar-cli asset transfer --from <span class="m">0</span> --to <span class="m">1</span> --amount <span class="m">10</span>
+Transfer-out account
+Please input password
+Password:
+Tranfer
+From:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+To:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Amount:10
+TxHash:9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659
+Waiting <span class="k">for</span> eventLog...
+EventLog:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">798</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;gas_consumed&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+            <span class="s2">&quot;AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9&quot;</span>,
+            <span class="s2">&quot;10&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>由于 <code class="docutils literal notranslate"><span class="pre">BT</span></code> 的（小数点后）精度是 0，因此如果输入浮点数，那么小数部分将会被丢弃。</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli info log 9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659
+Transaction:9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659 <span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">798</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;gas_consumed&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+            <span class="s2">&quot;AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9&quot;</span>,
+            <span class="s2">&quot;10&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>也可以完成指定账户在所接入网络中的 <code class="docutils literal notranslate"><span class="pre">BT</span></code> 以外的其他 <code class="docutils literal notranslate"><span class="pre">token</span></code> 的转账。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset transfer --asset-type 004ed82971fabb900ec1d582380e0fe11daf83a9 --from <span class="m">1</span> --to <span class="m">2</span> --amount <span class="m">10</span>
+Transfer-out account
+Please input password
+Password:
+Tranfer
+From:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+To:AHd6d9SFVWsXPa7BPmz7hhBaZzKeWGMoPP
+Amount:10
+TxHash:1ae808b3fd9c1e65fc8f4dee87254dcf96af52d28ab56b4f9976cda2b807694f
+Waiting <span class="k">for</span> eventLog...
+EventLog:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">1510</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;1ae808b3fd9c1e65fc8f4dee87254dcf96af52d28ab56b4f9976cda2b807694f&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;gas_consumed&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;004ed82971fabb900ec1d582380e0fe11daf83a9&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9&quot;</span>,
+            <span class="s2">&quot;AHd6d9SFVWsXPa7BPmz7hhBaZzKeWGMoPP&quot;</span>,
+            <span class="s2">&quot;10&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=授权转账">授权转账</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>在资产管理模块中，<code class="docutils literal notranslate"><span class="pre">approve</span></code> 命令用于授权转账。</p>
+<p>授权转移指定账户在所接入网络中的 <code class="docutils literal notranslate"><span class="pre">BT</span></code>。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset balance <span class="m">0</span>
+Address:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+XTAR balance:999999980
+$ xtar-cli asset approve --from <span class="m">0</span> --to <span class="m">1</span> --amount <span class="m">20</span>
+Transfer-out account
+Please input password
+Password:
+Approve
+From:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+To:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Amount:20
+TxHash:eb9b270a10efb7458c4792ec3d98803392c3d76d16ef7cb8852b95d1bdb327f3
+Waiting <span class="k">for</span> eventLog...
+EventLog:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">1910</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;eb9b270a10efb7458c4792ec3d98803392c3d76d16ef7cb8852b95d1bdb327f3&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;gas_consumed&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;approve&quot;</span>,
+            <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+            <span class="s2">&quot;AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9&quot;</span>,
+            <span class="s2">&quot;20&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=授权查询">授权查询</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>在资产管理模块中，<code class="docutils literal notranslate"><span class="pre">allowanceOf</span></code> 命令用于授权之后的转账查询。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset allowanceOf --from <span class="m">0</span> --to <span class="m">1</span>
+AllowanceOf
+From:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+To:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+XTAR balance:20
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=授权账户转账">授权账户转账</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>在资产管理模块中，<code class="docutils literal notranslate"><span class="pre">transferFrom</span></code> 命令用于构造授权账户转账交易。</p>
+<p>注意: 授权账户转账需由接收方签名并支付响应的系统资源。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset balance <span class="m">0</span>
+Address:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+XTAR balance:999999980
+$ xtar-cli asset transferFrom --from <span class="m">0</span> --to <span class="m">1</span> --amount <span class="m">20</span>
+Transfer-in account
+Please input password
+Password:
+TranferFrom
+From:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+To:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Amount:20
+TxHash:b4377825a6a83130d149630b15a75ff487146a3bddbd2c3819cbaf8d27450c53
+Waiting <span class="k">for</span> eventLog...
+EventLog:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">1956</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;b4377825a6a83130d149630b15a75ff487146a3bddbd2c3819cbaf8d27450c53&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;gas_consumed&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+            <span class="s2">&quot;AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9&quot;</span>,
+            <span class="s2">&quot;20&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+$ xtar-cli asset balance <span class="m">0</span>
+Address:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+XTAR balance:999999960
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=常见问题">常见问题</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>如何确认对账户资产的操作是否成功？</p>
+<p>所有对账户资产的操作，本质上都对应着交易的发送，在完成账户资产的操作后，你可以查看返回的交易哈希，确认操作是否成功。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli info log 9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659
+Transaction:9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659 <span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">798</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;gas_consumed&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+            <span class="s2">&quot;AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9&quot;</span>,
+            <span class="s2">&quot;10&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Bithumb Chain 网络中所有的交易是免费的，但是需要花费系统资源，如带宽和CPU，如何获得带宽和CPU？</p>
+<p>只需要抵押 BT 就可以获得带宽和CPU。理论上系统的带宽和CPU是有限的，系统会根据个人抵押的 BT 跟系统抵押的比例适时进行分配，同时也会适时释放之前锁定的带宽和CPU。</p>
+</li>
+<li><p>Bithumb Chain网络中的每笔交易需要消耗RAM，如何获得RAM?</p>
+<p>需要花费 BT 购买RAM，具体可参考 RAM Management。</p>
+</li>
+<li><p>如何在本地测试网中获取 <code class="docutils literal notranslate"><span class="pre">NET/CPU/RAM</span></code>？</p>
+<p>在第一次使用本地测试网时，你的默认账户会拥有所有的 <code class="docutils literal notranslate"><span class="pre">BT</span></code>，但是会有4个 <code class="docutils literal notranslate"><span class="pre">BT</span></code> 被用于购买资源，其中2个 <code class="docutils literal notranslate"><span class="pre">BT</span></code> 用于购买 <code class="docutils literal notranslate"><span class="pre">ram</span></code> (1个用于手续费，1个用于实际购买 <code class="docutils literal notranslate"><span class="pre">ram</span></code> )，1个用于抵押获得全网资源 <code class="docutils literal notranslate"><span class="pre">cpu</span></code>，1个用于抵押获得全网资源 <code class="docutils literal notranslate"><span class="pre">net</span></code>。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset balance <span class="m">0</span>
+Address:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+XTAR balance:<span class="o">=</span>&gt;
+<span class="m">999999996</span>
+</pre></div>
+</div>
+<p>同时，你的可使用的 <code class="docutils literal notranslate"><span class="pre">ram</span></code> 为 68719。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli ram balance <span class="m">0</span>
+Address:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+Ram:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;Used&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;Reserved&quot;</span>: <span class="m">68719</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="resource.html" class="btn btn-neutral float-right" title="资源管理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="info.html" class="btn btn-neutral float-left" title="信息获取" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Staking合约 &mdash; Bithumb Chain 文档 V1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Timer合约" href="16timer.html" />
+    <link rel="prev" title="Authorization合约" href="13authorization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../function.html">Bithumb Chain功能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00abi.html">智能合约ABI设计文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01BT.html">BT Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03token.html">Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04dex.html">DEX合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06global_params.html">Global Params合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07resource.html">Resource合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08name_service_v0.62.html">Name Service合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09ram.html">RAM合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10dapp_name.html">Name Service(dApp)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11foundation_name.html">Name Service(Foundation)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12prime.html">Prime合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13authorization.html">Authorization合约</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Staking合约</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">可调用合约方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="16timer.html">Timer合约</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../function.html">Bithumb Chain功能</a> &raquo;</li>
+        
+      <li>Staking合约</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functions/14staking.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="staking">
+<span id="staking"></span><h1>Staking合约<a class="headerlink" href="#staking" title="Permalink to this headline">¶</a></h1>
+<p>staking合约在Bithumb Chain平台进行抵押XTAR获得平台上网络资源（net）、cpu资源以获得将数据传输到链上并计算，以及抵押BT获得Bithumb Chain收益，类似于银行存款。</p>
+<p>管理资源分为：</p>
+<ul class="simple">
+<li><p>net：网络资源，用于区块链上的网络通信</p></li>
+<li><p>cpu：cpu资源，用于的Bithumb Chain平台进行计算</p></li>
+<li><p>mine: 用于获得DEX（去中心化交易所）的每日挖矿上限</p></li>
+</ul>
+<p>抵押可获得收益，抵押总量的基数为：</p>
+<p>​   <code class="docutils literal notranslate"><span class="pre">net+cpu+mine</span></code>的总量，如：抵押net:100BT,cpu:100BT,mine:100BT，则能获得收益的总量为300BT。</p>
+<p>抵押的资源给reciver接收方，抵押获得的收益则给抵押人from</p>
+<p>抵押收益权重：</p>
+<ul class="simple">
+<li><p>抵押收益权重为抵押时每单位BT的放大倍数；权重为1则不放大；权重为2则乘2；权重为3则乘3</p></li>
+</ul>
+<p>产品ID（表示staking抵押周期）：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>表示活期：可随时提取抵押的<strong>BT</strong>。抵押收益权重为1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>表示3个月抵押时间：必须在抵押3个月之后才能提取抵押的BT，抵押收益权重为2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>表示6个月抵押时间：必须在抵押6个月之后才能提取抵押的BT，抵押收益权重为3</p></li>
+</ul>
+<p>合约账户：XagqqFetxiDb9wbartKDrXgnqLaihXtcBn</p>
+<div class="section" id="">
+<span id="id1"></span><h2>可调用合约方法<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>1.抵押资源</p>
+<ul>
+<li><p>方法名称：stake</p></li>
+<li><p>描述：抵押人from为接收者抵押cpu、net和mine</p></li>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>该参数是一个抵押参数的结构体，代表其中的转账实体，具有</p>
+<ol class="simple">
+<li><p>抵押人from的账户</p></li>
+<li><p>接收者reciver的账户</p></li>
+<li><p>抵押net资源的BT额度</p></li>
+<li><p>抵押cpu资源的BT额度</p></li>
+<li><p>抵押用于获取dex挖矿上限的BT额度</p></li>
+<li><p>产品Id</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ul class="simple">
+<li><p>返回值：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>event log：</p>
+<ul>
+<li><p>stake</p>
+<ul>
+<li><p>该event log参数为</p>
+<ul>
+<li><p>from</p></li>
+<li><p>reciver</p></li>
+<li><p>netAmount</p></li>
+<li><p>cpuAmount</p></li>
+<li><p>mineAmount</p></li>
+<li><p>productId</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>2.申请返回抵押的BT</p>
+<ul class="simple">
+<li><p>方法名称：unstake</p></li>
+<li><p>描述：抵押人申请返还抵押的BT</p></li>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数是一个返还抵押参数的结构体，代表其中的转账实体，具有</p>
+<ol class="simple">
+<li><p>抵押人from的账户</p></li>
+<li><p>接收者reciver的账户</p></li>
+<li><p>抵押net资源的BT额度</p></li>
+<li><p>抵押cpu资源的BT额度</p></li>
+<li><p>抵押用于获取dex挖矿上限的BT额度</p></li>
+<li><p>产品Id</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>返回值：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event log：</p>
+<ul>
+<li><p>unstake：</p>
+<ul>
+<li><p>该event log参数为：</p>
+<ul>
+<li><p>from</p></li>
+<li><p>reciver</p></li>
+<li><p>netAmount</p></li>
+<li><p>cpuAmount</p></li>
+<li><p>mineAmount</p></li>
+<li><p>productId</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>3.申请抵押获得的利息：</p>
+<ul class="simple">
+<li><p>方法名称claim：</p></li>
+<li><p>描述：抵押人向staking合约申请通过stake获得的XTAR利息</p></li>
+<li><p>传入一个account参数：</p>
+<ul>
+<li><p>表示用户账户</p></li>
+</ul>
+</li>
+<li><p>返回值：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event log：</p>
+<ul>
+<li><p>refund：</p>
+<ul>
+<li><p>该event log参数为：</p>
+<ul>
+<li><p>user：用户</p></li>
+<li><p>amount：金额</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>4.unstake度过周期锁定期后提款：</p>
+<ul class="simple">
+<li><p>方法名称refund：</p></li>
+<li><p>描述：在抵押人unstake动作之后进行提款操作</p></li>
+<li><p>传入一个account参数：</p>
+<ul>
+<li><p>表示用户账户</p></li>
+</ul>
+</li>
+<li><p>返回值：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event log：</p>
+<ul>
+<li><p>refund</p>
+<ul>
+<li><p>该event log参数为：</p>
+<ul>
+<li><p>user</p></li>
+<li><p>amount</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="16timer.html" class="btn btn-neutral float-right" title="Timer合约" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="13authorization.html" class="btn btn-neutral float-left" title="Authorization合约" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

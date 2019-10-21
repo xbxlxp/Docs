@@ -1,0 +1,1309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Name Service合约 &mdash; Bithumb Chain 文档 V1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RAM合约" href="09ram.html" />
+    <link rel="prev" title="Resource合约" href="07resource.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../function.html">Bithumb Chain功能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00abi.html">智能合约ABI设计文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01BT.html">BT Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03token.html">Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04dex.html">DEX合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06global_params.html">Global Params合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07resource.html">Resource合约</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Name Service合约</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">域名划分：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">域名状态：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#name-service">5.1、name_service合约</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">合约功能：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">可调用合约方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event">可触发合约事件event</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="09ram.html">RAM合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10dapp_name.html">Name Service(dApp)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11foundation_name.html">Name Service(Foundation)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12prime.html">Prime合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13authorization.html">Authorization合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14staking.html">Staking合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16timer.html">Timer合约</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../function.html">Bithumb Chain功能</a> &raquo;</li>
+        
+      <li>Name Service合约</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functions/08name_service_v0.62.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="name-service">
+<span id="name-service"></span><h1>Name Service合约<a class="headerlink" href="#name-service" title="Permalink to this headline">¶</a></h1>
+<p>name_service合约是管理<code class="docutils literal notranslate"><span class="pre">Bithumb</span> <span class="pre">Chain链上域名系统（VDNS）</span></code>的合约之一。name_service合约对链上域名进行管。</p>
+<p>域名管理：VDNS合约只管理一级域名的所有权，多级域名的控制权由<strong>一级域名的所有人及该多级域名的父域名所有人</strong>共同决定。</p>
+<blockquote>
+<div><p><em>所有人可以是普通用户，也可以是一本合约</em></p>
+</div></blockquote>
+<div class="section" id="">
+<span id="id1"></span><h2>域名划分：<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>域名根据分隔符”.”数量，划分为FirstLevel（一级）,SecondLevel（二级）,MoreLevel（多级），”bithumbchain”是一级域名，”x.bithumbchain”是二级域名，”www.x.bithumbchain”是三级域名，三级以及三级以上域名统称为多级域名。</p></li>
+<li><p>域名根据不同的后缀，分为不同的类型：</p>
+<ul>
+<li><ol class="simple">
+<li><p>12位小写字母或数字1-9组成的域名为<code class="docutils literal notranslate"><span class="pre">TypeCommonName（普通域名或者免费域名）</span></code>，每个地址可免费注册一个；</p></li>
+<li><p>以”system”为后缀的是系统域名，仅由Native Contract才有资格拥有</p></li>
+<li><p>以”xtar”为后缀的是<code class="docutils literal notranslate"><span class="pre">TypeOfficialName（官方域名）</span></code>，由基金会合约分配;</p></li>
+<li><p>以 “com”, “cn”等为后缀的目前是<code class="docutils literal notranslate"><span class="pre">TypeReservedName（保留域名）</span></code>，目前无实际用途，仅做保留；</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>“com”, “cn”, “net”, “org”, “io”, “one”, “global”, “us”, “co”, “edu”</p></li>
+<li><p>“star”, “dex”, “system”, “spbithumbchain”, “bithumbchainsp”, “dapp”, “app”, “prime”</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ol class="simple">
+<li><p>3位到11位长度的所有合法一级域名，均为<code class="docutils literal notranslate"><span class="pre">TypeReservedName（可购买域名）</span></code>，通过购买获得</p></li>
+</ol>
+</li>
+<li><p>域名特殊名称</p>
+<ul class="simple">
+<li><p>RootName(根域名),TopName(顶级域名)是一级域名的别称，<code class="docutils literal notranslate"><span class="pre">a.b.bithumbchain</span></code>的根域名是bithumbchain<code class="docutils literal notranslate"><span class="pre">，</span></code>bithumbchain<code class="docutils literal notranslate"><span class="pre">的根域名也是bithumbchain</span></code></p></li>
+<li><p>FatherName(父亲域名或父域名)，是多级域名的上一级域名，<code class="docutils literal notranslate"><span class="pre">a.b.bithumbchain</span></code>的父域名是<code class="docutils literal notranslate"><span class="pre">b.bithumbchain</span></code></p>
+<ul>
+<li><p>特别强调的是，<u>一级域名的父域名是自己，例如，<code class="docutils literal notranslate"><span class="pre">bithumbchain</span></code>的父域名也是<code class="docutils literal notranslate"><span class="pre">bithumbchain</span></code></u></p></li>
+</ul>
+</li>
+<li><p>Signature(签名)</p>
+<ul>
+<li><p>私钥签名，与其他区块链的签名，无任何区别</p></li>
+<li><p>当Signer(签名者)是一本合约时，由于合约地址没有对应私钥，当且仅当Signer合约调用name_service合约时，在name_service合约中，Signer验签通过</p></li>
+</ul>
+</li>
+<li><p>registerSign(承诺，注册授权或异步签名)</p>
+<ul>
+<li><p>通过调用registerSign方法产生的异步签名，仅可在name_service合约中的registerName方法里，替代Signer的签名，详情见方法说明</p></li>
+</ul>
+</li>
+<li><p>Agent(代理)</p>
+<ul>
+<li><p>根域名可以设置自己的代理人，代替自己签名或者异步签名，需要注意代理适用域名范围，详情见setRootAgent方法说明</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>域名状态：<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>0：Empty-未被注册的</p></li>
+<li><p>1：Used-正常使用中的</p>
+<ul>
+<li><p>转让冻结中（域名冻结只能通过解冻时刻判断，域名状态依然属于Used，详情见下方getAddressInfo方法说明）</p>
+<ul>
+<li><p>当前时间小于<u>解冻时刻</u></p></li>
+</ul>
+</li>
+<li><p>未冻结</p>
+<ul>
+<li><p>当前时间大于等于<u>解冻时刻</u></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>2：Blocked-已拉黑的</p></li>
+</ul>
+</div>
+<div class="section" id="name-service">
+<span id="id3"></span><h2>5.1、name_service合约<a class="headerlink" href="#name-service" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="">
+<span id="id4"></span><h3>合约功能：<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>查询各类域名及相关信息</p></li>
+<li><p>购买、注册、设置主域名、转让、拉黑功能</p></li>
+<li><p>授权注册多级域名(<em>异步签名</em>)，授权代理用户(<em>可代替本人签名</em>)</p></li>
+</ul>
+<p>合约地址：XagqqFetxiDb9wbartKDrXgnqLahx9xZhB</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>可调用合约方法<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>1.<strong>查询域名对应的地址getAddressInfo</strong></p>
+<ul>
+<li><p>方法名称：getAddressInfo</p></li>
+<li><p>描述：查询域名对应的地址、域名解冻时刻(当前时间大于等同于解冻时刻，即正常状态，否则处于转让冻结状态)、域名状态</p></li>
+<li><p>传入参数及其意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>表示域名</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>返回值及其意义：</p>
+<ul class="simple">
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数是一个结构体，具有三个成员：</p>
+<ol class="simple">
+<li><p>域名对应的地址账户</p></li>
+<li><p>域名的解冻时刻</p></li>
+<li><p>域名状态</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;addressInfo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unfreezeTime&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint32&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint8&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>2.<strong>查询顶级域名的购买价格</strong></p>
+<ul>
+<li><p>方法名称：getXnsNamePrice</p></li>
+<li><p>描述：查询某个顶级域名的购买价格</p></li>
+<li><p>传入参数及其意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>表示域名</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>返回值及其意义：</p>
+<ul class="simple">
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数是一个数字，表示域名价格，精度是8位，token是xtar</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>触发event：</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>3.<strong>购买域名buyXnsName</strong></p>
+<ul>
+<li><p>方法名称：buyXnsName</p></li>
+<li><p>描述：购买顶级域名，并且自动注册绑定该域名</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>该参数是一个结构体，具有2个成员：</p>
+<ul>
+<li><ol class="simple">
+<li><p>顶级域名</p></li>
+<li><p>域名绑定账户（同时也是购买者，需要校验该账户签名，账户中要有足够的钱）</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;buyNameParam&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;buyer&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>返回值及其意义：</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul class="simple">
+<li><p>buyXnsName</p></li>
+</ul>
+</li>
+</ul>
+<p>4.<strong>注册域名registerName</strong></p>
+<ul>
+<li><p>方法名称：registerName</p></li>
+<li><p>描述：注册域名</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>该参数是一个结构体，具有2个成员：</p>
+<ul>
+<li><ol class="simple">
+<li><p>域名</p></li>
+<li><p>域名绑定账户（需要校验该账户签名）</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>备注：仅可注册免费普通的一级域名以及多级域名，注册任何多级域名需要同时获得其父亲域名、其根域名、其本人三方的同意</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;registerNameParam&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;address&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>返回值及其意义：</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul class="simple">
+<li><p>registerName</p></li>
+</ul>
+</li>
+</ul>
+<p>5.<strong>设置主域名setMainName</strong></p>
+<ul>
+<li><p>方法名称：setMainName</p></li>
+<li><p>描述：设置主域名</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p></li>
+<li><ul>
+<li><p>表示域名</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>备注：设置主域名需要获得域名使用者的签名</p></li>
+<li><p>返回值及其意义：</p></li>
+<li><p>无</p></li>
+<li><p>触发event：</p>
+<ul class="simple">
+<li><p>setMainName</p></li>
+</ul>
+</li>
+</ul>
+<p>6.<strong>获取一个账户的域名信息getXnsNameInfo</strong></p>
+<ul>
+<li><p>方法名称：getXnsNameInfo</p></li>
+<li><p>描述：获取一个账户的域名信息</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>表示该账户的地址</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>返回值及其意义：</p>
+<ul class="simple">
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数是一个结构体，具有3个成员：</p>
+<ol class="simple">
+<li><p>该账户的主域名</p></li>
+<li><p>该账户所拥有的域名数量</p></li>
+<li><p>该账户是否已经注册过免费顶级域名</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsNameInfo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mainXnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;totalNames&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint32&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hasCommonName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>触发event：</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>7.<strong>转让域名transferName</strong></p>
+<ul class="simple">
+<li><p>方法名称：transferName</p></li>
+<li><p>描述：转让域名</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>该参数是一个结构体，具有2个成员：</p>
+<ul>
+<li><ol class="simple">
+<li><p>域名</p></li>
+<li><p>接收账户</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;transferNameParam&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dstAccount&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>备注：</p>
+<ul>
+<li><p>仅可以转让一级收费域名，并且该域名不能绑定在合约上；转让域名需要同时获得，域名拥有者，接受者双方签名</p></li>
+<li><p><u>转让域名之后，域名会冻结解析90天时间</p></li>
+<li><p>冻结期间，域名不能接受转账，不能再次转让，但可以继续授权子孙域名注册，设置代理人</u></p></li>
+</ul>
+</li>
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>transferName</p></li>
+</ul>
+</li>
+</ul>
+<p>8.<strong>放弃域名（拉黑域名）blockName</strong></p>
+<ul>
+<li><p>方法名称：blockName</p></li>
+<li><p>描述，设置域名状态为拉黑状态（拉黑也即放弃域名状态）</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>该参数是一个域名，类型为字符串</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>备注：</p>
+<ul class="simple">
+<li><p>域名拥有者可以拉黑自己的域名；根域名拥有者可以拉黑自己的子孙域名；除此之外，均不具备拉黑权力</p></li>
+<li><p>域名一旦拉黑，永久不可逆</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul class="simple">
+<li><p>blockName</p></li>
+</ul>
+</li>
+</ul>
+<p>9.<strong>转出域名支票transferNameTo</strong></p>
+<ul>
+<li><p>方法名称：transferNameTo</p></li>
+<li><p>描述：域名拥有者授权其他用户可以提取该域名拥有者的域名</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>该参数是一个结构体，具有两个成员：</p>
+<ul>
+<li><ol class="simple">
+<li><p>域名</p></li>
+<li><p>接收方账户</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;transferNameParam&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dstAccount&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>备注：</p>
+<ul class="simple">
+<li><p>转出域名支票，仅需要xnsName拥有者签名即可，<strong>同一个域名只支持一张支票，后开的支票会覆盖前面的支票</strong></p></li>
+<li><p>转出域名，仅代表域名拥有者同意，并不代表一定会转让成功，最终取决于接收者提取域名时，能否通过TransferName的校验</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul class="simple">
+<li><p>transferNameTo</p></li>
+</ul>
+</li>
+</ul>
+<p>10.<strong>接收授权转让的域名transferNameAccept</strong></p>
+<ul>
+<li><p>方法名称：transferNameAccept</p></li>
+<li><p>描述：接收者提取“转出域名支票”</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>该参数是一个结构体，具有两个成员：</p>
+<ul>
+<li><ol class="simple">
+<li><p>域名</p></li>
+<li><p>接收方账户</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;transferNameParam&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dstAccount&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>备注：</p>
+<ul class="simple">
+<li><p>仅需要接受者签名，即可提取域名支票，无需再验证域名拥有者签名，但是需要此时刻的域名满足转让域名的条件，比如域名必须满足正常无冻结状态</p></li>
+<li><p><u>转让域名之后，域名会冻结解析90天时间</p></li>
+<li><p>冻结期间，域名不能接受转账，不能再次转让，但可以继续授权子孙域名注册，设置代理人</u></p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>返回值：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event log：</p>
+<ul>
+<li><p>transferNameAccept</p></li>
+</ul>
+</li>
+</ul>
+<p>11.<strong>查询是否有父级域名</strong></p>
+<ul class="simple">
+<li><p>方法名称：hasFatherName</p></li>
+<li><p>描述：查询<code class="docutils literal notranslate"><span class="pre">account</span></code>是否拥有某个域名,该域名的父域名是<code class="docutils literal notranslate"><span class="pre">fatherName</span></code></p></li>
+<li><p>说明：<code class="docutils literal notranslate"><span class="pre">xyz.abc.xtar</span></code>的父级域名为<code class="docutils literal notranslate"><span class="pre">abc.xtar</span></code>,而<code class="docutils literal notranslate"><span class="pre">xtar</span></code>不是<code class="docutils literal notranslate"><span class="pre">xyz.abc.xtar</span></code>的父级域名。父级域名必须是比该域名少一个<code class="docutils literal notranslate"><span class="pre">.</span></code>且父级域名完全包括在该域名中；有一种特殊情况，顶级域名的父域名是自身，即<code class="docutils literal notranslate"><span class="pre">xtar</span></code>的父域名是<code class="docutils literal notranslate"><span class="pre">xtar</span></code></p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入两个参数：</p>
+<ul>
+<li><p>查询的账户</p></li>
+<li><p>查询的父级域名</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        {
+          &quot;name&quot;: &quot;account&quot;,
+          &quot;type&quot;: &quot;account&quot;
+        },
+        {
+          &quot;name&quot;: &quot;fatherName&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>备注：同一个账户地址，可以有多个域名，这些域名允许拥有相同的父域名，例如，user可以注册<code class="docutils literal notranslate"><span class="pre">1.xtar</span></code>,也可以注册<code class="docutils literal notranslate"><span class="pre">2.xtar</span></code>，即使<code class="docutils literal notranslate"><span class="pre">1.xtar</span></code>域名被拉黑，hasFatherName(user, “xtar”)依然返回<code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p>返回值：</p>
+<ul>
+<li><p>返回一个参数，类型为bool，是否具有该父级域名的域名</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hasFatherName&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发合约事件：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>12.<strong>授权注册子域名的承诺（异步签名）</strong></p>
+<ul>
+<li><p>方法名称：registerSign</p></li>
+<li><p>描述：在XTAR链上由域名持有人为接收者提供异步签名，可替代注册域名时的在线签名</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>该参数是一个结构体，具有四个成员：</p>
+<ul>
+<li><ol class="simple">
+<li><p>授权receiver用户可注册的域名范围（例如参数填写”abc.xtar”,表明receiver可注册的域名必须是”abc.xtar”的直接子域名）</p></li>
+<li><p>授权方签名方账户</p></li>
+<li><p>接收方账户</p></li>
+<li><p>默认<code class="docutils literal notranslate"><span class="pre">false</span></code>, 如果为<code class="docutils literal notranslate"><span class="pre">true</span></code>表明<u>取消之前已授权的签名</u></p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;registerSignParam&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;signerAccount&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;receiverAccount&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;isCancelled&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>备注：</p>
+<ul class="simple">
+<li><p>该方法提供的异步签名，只在注册子域名时有效，无法应用于转让域名等其他方法</p></li>
+<li><p>如果Signer，既是根域名拥有者，也是父域名拥有者，那么相当于两份签名同时生效</p></li>
+<li><p>Signer异步签名成功后，只要不主动取消签名，即使Signer自身未来被拉黑或者转让冻结，也不影响之前的异步签名的有效性</p></li>
+<li><p>Signer授权给Receiver的可注册域名范围，只能是<strong>直接子域名</strong>范围，不是<strong>子孙域名</strong>范围</p>
+<ul>
+<li><p>例如只授权了”abc.xtar”后，Receiver可以选择注册”1.abc.xtar”，不可以注册”1.1.abc.xtar”</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>返回值：</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>event log：</p>
+<ul class="simple">
+<li><p>registerSign</p></li>
+</ul>
+</li>
+</ul>
+<p>13.<strong>根域名设置代理人</strong></p>
+<ul>
+<li><p>方法名称：setRootAgent</p></li>
+<li><p>名称：根域名拥有者，可设置代理人代替自己，进行注册子域名的签名授权</p></li>
+<li><p>说明：同一个代理域名范围下的代理人只能设置一个，如果需要取消代理人则把代理人设置为自己的账户，若选项为永久代理则不可变更代理人。</p></li>
+<li><p>传入参数及意义：</p>
+<ul class="simple">
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>该参数是一个结构体，具有3个成员：</p>
+<ul>
+<li><ol class="simple">
+<li><p>代理域名范围</p></li>
+<li><p>Agent账户</p></li>
+<li><p>是否永久代理</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;setRootAgentParam&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;receiverAccount&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;isPermanent&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bool&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>备注：</p>
+<ul class="simple">
+<li><p>第一个参数是代理范围，例如参数<code class="docutils literal notranslate"><span class="pre">abc.xtar</span></code>，表明代理范围是<code class="docutils literal notranslate"><span class="pre">*.abc.xtar</span></code>，即<code class="docutils literal notranslate"><span class="pre">abc.xtar</span></code>域名的所有<u>子孙域名</u></p></li>
+<li><p>当第一个参数代理范围是<code class="docutils literal notranslate"><span class="pre">abc.xtar</span></code>，授权者只能是<code class="docutils literal notranslate"><span class="pre">xtar</span></code>的拥有者，只有根域名拥有才能是授权者，所以参数无需填入授权者，只需要通过授权范围，可以求出授权者是谁</p></li>
+<li><p>当Receiver得到代理身份后，其可以对其他人提供<code class="docutils literal notranslate"><span class="pre">abc.xtar</span></code>,<code class="docutils literal notranslate"><span class="pre">1.abc.xtar</span></code>,<code class="docutils literal notranslate"><span class="pre">1.1.abc.xtar</span></code>等级别的可注册域名授权，但是不能提供<code class="docutils literal notranslate"><span class="pre">1.xtar</span></code>,<code class="docutils literal notranslate"><span class="pre">xtar</span></code>的授权范围</p>
+<ul>
+<li><p>因为<code class="docutils literal notranslate"><span class="pre">1.xtar</span></code>,<code class="docutils literal notranslate"><span class="pre">xtar</span></code>不属于代理范围<code class="docutils literal notranslate"><span class="pre">abc.xtar</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>返回值：</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>event log：</p>
+<ul class="simple">
+<li><p>setRootAgent</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="event">
+<span id="event"></span><h2>可触发合约事件event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h2>
+<p>1.<strong>购买域名buyXnsName事件</strong></p>
+<ul>
+<li><p>event名称：buyXnsName</p></li>
+<li><p>描述：注册域名的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul class="simple">
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.registerName</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token注册后相关实体:</p>
+<ul>
+<li><p>2.购买的域名</p></li>
+<li><p>3.购买者账户</p></li>
+<li><p>4.购买价格</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;buyXnsName&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xnsName&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;buyer&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uint64&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>2.<strong>注册域名registerName事件</strong></p>
+<ul>
+<li><p>event名称：registerName</p></li>
+<li><p>描述：注册域名的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul class="simple">
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.registerName</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表注册域名事件返回的数据:</p>
+<ul>
+<li><p>2.域名</p></li>
+<li><p>3.绑定的账户</p></li>
+<li><p>4.该域名是否被设置成了该账户的主域名</p></li>
+<li><p>5.该域名状态</p>
+<ul>
+<li><p>只有值是1（Used）才是合法状态</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;xnsName&quot;,
+  &quot;type&quot;: &quot;string&quot;
+},
+{
+  &quot;name&quot;: &quot;account&quot;,
+  &quot;type&quot;: &quot;account&quot;
+},
+{
+  &quot;name&quot;: &quot;isMainXnsName&quot;,
+  &quot;type&quot;: &quot;bool&quot;
+},
+{
+  &quot;name&quot;: &quot;nameStatus&quot;,
+  &quot;type&quot;: &quot;uint8&quot;
+}  
+</pre></div>
+</div>
+</li>
+<li><p>备注：</p>
+<ul class="simple">
+<li><p>当该账户没有主域名的时候，该域名会被自动设置为主域名</p></li>
+<li><p>如果返回false，表明该账户之前已经有主域名了，除非账户拥有者setMainName，否则不会更改</p></li>
+</ul>
+</li>
+</ul>
+<p>3.<strong>设置主域名setMainName事件</strong></p>
+<ul>
+<li><p>event名称：setMainName</p></li>
+<li><p>描述：设置主域名的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul class="simple">
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.setMainName</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token发行的相关参数：</p>
+<ul>
+<li><p>2.账户</p></li>
+<li><p>3.主域名</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;account&quot;,
+  &quot;type&quot;: &quot;account&quot;
+},
+{
+  &quot;name&quot;: &quot;mainName&quot;,
+  &quot;type&quot;: &quot;string&quot;
+}
+</pre></div>
+</div>
+</li>
+</ul>
+<p>4.<strong>转让域名transferName事件</strong></p>
+<ul>
+<li><p>event名称：transferName</p></li>
+<li><p>描述：转让时返回的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul class="simple">
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.transferName</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token发行的相关参数：</p>
+<ul>
+<li><p>2.域名</p></li>
+<li><p>3.转出账户</p></li>
+<li><p>4.接收账户</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;xnsName&quot;,
+  &quot;type&quot;: &quot;string&quot;
+},
+{
+  &quot;name&quot;: &quot;srcAddress&quot;,
+  &quot;type&quot;: &quot;account&quot;
+},
+{
+  &quot;name&quot;: &quot;dstAddress&quot;,
+  &quot;type&quot;: &quot;account&quot;
+}
+</pre></div>
+</div>
+</li>
+</ul>
+<p>7.<strong>拉黑域名blockName事件</strong></p>
+<ul>
+<li><p>event名称：blockName</p></li>
+<li><p>描述：拉黑域名状态时的收据</p></li>
+<li><p>event_logs及其参数：</p>
+<ul class="simple">
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.setNameStatus</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul>
+<li><p>2.域名</p></li>
+<li><p>3.拉黑之前域名的状态</p></li>
+<li><p>4.拉黑之后域名的状态，只能是2（Blocked）</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;nameContent&quot;,
+  &quot;type&quot;: &quot;string&quot;
+},
+{
+  &quot;name&quot;: &quot;statusBefore&quot;,
+  &quot;type&quot;: &quot;uint8&quot;
+},
+{
+  &quot;name&quot;: &quot;statusAfter&quot;,
+  &quot;type&quot;: &quot;uint8&quot;
+}
+</pre></div>
+</div>
+</li>
+</ul>
+<p>7.<strong>转出域名支票transferNameTo</strong></p>
+<ul>
+<li><p>event名称：transferNameTo</p></li>
+<li><p>描述：授权转出域名时的收据</p></li>
+<li><p>event_logs及其参数：</p>
+<ul class="simple">
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.transferNameTo</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul>
+<li><p>2.域名</p></li>
+<li><p>3.授权转出地址</p></li>
+<li><p>4.授权接收地址</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;xnsName&quot;,
+  &quot;type&quot;: &quot;string&quot;
+},
+{
+  &quot;name&quot;: &quot;srcAccount&quot;,
+  &quot;type&quot;: &quot;account&quot;
+},
+{
+  &quot;name&quot;: &quot;dstAccount&quot;,
+  &quot;type&quot;: &quot;account&quot;
+}
+</pre></div>
+</div>
+</li>
+</ul>
+<p>8.<strong>提取授权转让的域名transferNameAccept事件</strong></p>
+<ul>
+<li><p>event名称：transferNameAccept</p></li>
+<li><p>描述：提取授权转让的域名时的收据</p></li>
+<li><p>event_logs及其参数：</p>
+<ul class="simple">
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.transferNameAccept</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul>
+<li><p>2.域名</p></li>
+<li><p>3.授权转出地址</p></li>
+<li><p>4.授权接收地址</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;xnsName&quot;,
+  &quot;type&quot;: &quot;string&quot;
+},
+{
+  &quot;name&quot;: &quot;srcAddress&quot;,
+  &quot;type&quot;: &quot;account&quot;
+},
+{
+  &quot;name&quot;: &quot;dstAddress&quot;,
+  &quot;type&quot;: &quot;account&quot;
+}
+</pre></div>
+</div>
+</li>
+</ul>
+<p>9.<strong>异步注册签名registerSign事件</strong></p>
+<ul>
+<li><p>event名称:registerSign</p></li>
+<li><p>描述：异步签名时的收据</p></li>
+<li><p>event_logs参数：</p></li>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">registerSign</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul class="simple">
+<li><p>2.授权可注册的域名范围</p></li>
+<li><p>3.授权签名账户</p></li>
+<li><p>4.接收者账户</p></li>
+<li><p>5.授权Or取消授权</p></li>
+<li><p>6.签名结果</p></li>
+</ul>
+</li>
+</ul>
+<p>10.<strong>设置根域名签名的代理人</strong></p>
+<ul>
+<li><p>event名称:setRootAgent</p></li>
+<li><p>描述：根域名签名的代理时的收据</p></li>
+<li><p>event_logs参数：</p></li>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setRootAgent</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul class="simple">
+<li><p>2.代理范围</p></li>
+<li><p>3.授权签名账户</p></li>
+<li><p>4.接收者账户</p></li>
+<li><p>5.是否是永久代理</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="09ram.html" class="btn btn-neutral float-right" title="RAM合约" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="07resource.html" class="btn btn-neutral float-left" title="Resource合约" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

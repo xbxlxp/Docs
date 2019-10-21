@@ -1,0 +1,217 @@
+# 信息获取
+
+Xtar客户端 `xtar-CLI` 提供了信息获取模块，可以在命令行中通过 `info` 命令进行以下操作：
+
+- 查询区块信息
+- 查询交易信息
+- 查询日志信息
+- 查询合约信息
+
+此外，你可以通过 `help` 命令获取信息获取模块的帮助信息 。
+
+```shell
+xtar-cli info help
+```
+
+## [区块信息](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/11-block-info?id=区块信息)
+
+要根据区块高度或者区块哈希查询区块信息，使用`block` 命令。
+
+你可以在第一个终端将客户端连接到测试网。
+
+```shell
+xtar-cli --testnet
+```
+
+然后在第二个终端中查询测试网中的区块信息。
+
+```shell
+$ xtar-cli info block 1
+Block:1 =>
+{
+   "Header": {
+      "version": 1,
+      "prev_block_hash": "ba1dc3fd3375ae49bf1f8f66442f482a96924e2ffe0876135a7bab761e42729d",
+      "prev_proposal_block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "transaction_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "block_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "state_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "nonce": 11902894692223061046,
+      "timestamp": 1560764427,
+      "consensus_no": 1,
+      "consensus_index": 0,
+      "consensus_num": 0,
+      "height": 1,
+      "vrf_value": "",
+      "vrf_proof": "",
+      "next_bookkeeper": "AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn",
+      "bookkeepers": [
+         "01025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc82"
+      ],
+      "sig_data": [
+         "0199aa61041143bca26b64f6a089ec4823bdfff57e1c14733a167ff989bf83acf66ad77dcccb501ba6f2da05a0ab8cef471f4571a1be0ea5ac1d79ada9dd38f643"
+      ],
+      "hash": "415ec035b839b8318f5ca7c5da264c9940d26185096864a7b66eb09c4619848a"
+   },
+   "TxList": []
+}
+$ xtar-cli info block d85180c488dac6987c94c3c3f11667c58df3eadfdff68010b5c8c2075d8c5cd9
+Block:d85180c488dac6987c94c3c3f11667c58df3eadfdff68010b5c8c2075d8c5cd9 =>
+{
+   "Header": {
+      "version": 1,
+      "prev_block_hash": "415ec035b839b8318f5ca7c5da264c9940d26185096864a7b66eb09c4619848a",
+      "prev_proposal_block_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "transaction_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "block_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "state_root": "0000000000000000000000000000000000000000000000000000000000000000",
+      "nonce": 6671621713384406800,
+      "timestamp": 1560764432,
+      "consensus_no": 2,
+      "consensus_index": 0,
+      "consensus_num": 0,
+      "height": 2,
+      "vrf_value": "",
+      "vrf_proof": "",
+      "next_bookkeeper": "AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn",
+      "bookkeepers": [
+         "01025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc82"
+      ],
+      "sig_data": [
+         "01a9283896bad9bc93b0cca99bec6e0803ea58e8d5a2789ae5f23863b0b71d3674aa99655a2b994bc9dbed6ea451580b238bcecf2bc0477391dddf59fbb1810e6f"
+      ],
+      "hash": "d85180c488dac6987c94c3c3f11667c58df3eadfdff68010b5c8c2075d8c5cd9"
+   },
+   "TxList": []
+}
+```
+
+## [交易信息](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/11-block-info?id=交易信息)
+
+要根据交易哈希查询交易信息，使用`tx` 命令。
+
+你可以在第一个终端将客户端连接到测试网。
+
+```shell
+xtar-cli --testnet
+```
+
+然后在第二个终端中查询测试网中的交易信息。
+
+请求正文如下：
+
+```shell
+$ xtar-cli info tx 9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659
+Transaction:9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659 =>
+{
+   "Height": 798,
+   "Tx": {
+      "tx_type": 0,
+      "version": 0,
+      "nonce": 5689560612098248646,
+      "payload": {
+         "address": "0000000000000000000000000000000000000001",
+         "method": "transfer",
+         "args": "0c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060a"
+      },
+      "attributes": [],
+      "payer": "AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn",
+      "sig": [
+         {
+            "public_keys": [
+               "01025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc82"
+            ],
+            "m": 1,
+            "sig_data": [
+               "0117ec67ad1b514ff2888477a00ae8ed3f0ef88291d3042d61a3511e433679ee88f2cfa7ff59a738f0707d63b98128c212a75ead42a90c640bc095dbb42ca54763"
+            ]
+         }
+      ],
+      "hash": "9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659"
+   }
+}
+```
+
+在返回的交易状态中，各字段的含义如下：
+
+- `Nonce`：随机数。
+- `Payer`：指定支付交易资源的钱包账户（默认使用转账交易的扣款账户）。
+- `Hash`：交易哈希。
+
+## [日志信息](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/11-block-info?id=日志信息)
+
+要根据交易哈希查询交易状态，使用`log` 命令。
+
+你可以在第一个终端将客户端连接到测试网。
+
+```shell
+xtar-cli --testnet
+```
+
+然后在第二个终端中查询测试网中的交易状态。
+
+请求正文如下：
+
+```shell
+$ xtar-cli info log 9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659
+Transaction:9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659 =>
+{
+   "height": 798,
+   "tx_hash": "9bb36c6af86c6dc9a928626e3ef451d8af49d78b1b5be28e8a0ffefb6721c659",
+   "error_code": 0,
+   "gas_consumed": 0,
+   "event_logs": [
+      {
+         "contract": "0000000000000000000000000000000000000001",
+         "data": [
+            "transfer",
+            "AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn",
+            "AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9",
+            "10"
+         ]
+      }
+   ]
+}
+```
+
+在返回的交易状态中，各字段的含义如下：
+
+- `error_code`：交易执行结果，若值为 `0`，表示交易执行成功。
+- `gas_consumed`：执行交易所消耗的资源。
+- `event_logs` ：交易执行时所触发的事件。
+
+## [合约信息](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/11-block-info?id=合约信息)
+
+要获取所接入网络的智能合约信息，使用`contract` 命令。
+
+你可以在第一个终端将客户端连接到测试网。
+
+```shell
+xtar-cli --testnet
+```
+
+然后在第二个终端中查询测试网的当前区块高度。
+
+```shell
+$ xtar-cli info contract 004ed82971fabb900ec1d582380e0fe11daf83a9
+Contract:004ed82971fabb900ec1d582380e0fe11daf83a9 =>
+{
+   "code": "036c787008843b9aca0028d1241e6b77872eca282a18e68d55a434472669a4869c396745bd319d69c240c4b9647ef540355478135da6433bae3295c9827c",
+   "name": "",
+   "author": "",
+   "version": "1.0",
+   "email": "5210186@qq.com",
+   "description": "lixp",
+   "type": "native"
+}
+```
+
+在返回的信息中，各字段的含义如下：
+
+- `name`：合约的名称。
+- `author` ：合约发行人的信息。
+- `version` ：版本信息。
+- `email` ：合约发行人的联系邮箱。
+- `description` ：合约描述信息。
+- `type` ：合约类型。
+

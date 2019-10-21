@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Global Params合约 &mdash; Bithumb Chain 文档 V1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Resource合约" href="07resource.html" />
+    <link rel="prev" title="DEX合约" href="04dex.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../function.html">Bithumb Chain功能</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00abi.html">智能合约ABI设计文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01BT.html">BT Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03token.html">Token合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04dex.html">DEX合约</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Global Params合约</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">可调用合约方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event">可触发合约事件event</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="07resource.html">Resource合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08name_service_v0.62.html">Name Service合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09ram.html">RAM合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10dapp_name.html">Name Service(dApp)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11foundation_name.html">Name Service(Foundation)合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12prime.html">Prime合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13authorization.html">Authorization合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14staking.html">Staking合约</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16timer.html">Timer合约</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../function.html">Bithumb Chain功能</a> &raquo;</li>
+        
+      <li>Global Params合约</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functions/06global_params.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="global-params">
+<span id="global-params"></span><h1>Global Params合约<a class="headerlink" href="#global-params" title="Permalink to this headline">¶</a></h1>
+<p>global_params合约是Bithumb Chain发行管理链上全局参数的合约。合约对链上的全局参数进行的管理：转移管理员transferAdmin、接受成为新的管理员acceptAdmin、查询管理员getAdmin、设置全局参数setParams、应用全局参数applyParams、获取全局参数getParams、设置操作人setOperator、查询操作人getOperator的功能。</p>
+<p>全局参数包括：</p>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>freeFlg：资源使用是否免费，bool类型</p></li>
+<li><p>validatorNum：验证节点的数量</p></li>
+<li><p>proposerNum：提案节点数量</p></li>
+<li><p>assetLockTime：资产锁定时间</p></li>
+<li><p>…</p></li>
+</ol>
+</li>
+</ul>
+<p>合约地址：XagqqFetxiDb9wbartKDrXgnqLahmbZRXT</p>
+<div class="section" id="">
+<span id="id1"></span><h2>可调用合约方法<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>1、<strong>转移管理员transferAdmin</strong></p>
+<ul class="simple">
+<li><p>方法名称：transferAdmin</p></li>
+<li><p>描述：转移系统的管理员</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>表示新的管理员地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;newAdmin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>transferAdmin</p></li>
+</ul>
+</li>
+</ul>
+<p>2、<strong>接受成为新的管理员acceptAdmin</strong></p>
+<ul class="simple">
+<li><p>方法名称：acceptAdmin</p></li>
+<li><p>描述：接收成为新的管理员</p></li>
+<li><p>传入参数及意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>预期：交易需要新的管理员进行签名，否则将验证失败</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;:&quot;tokenAddress&quot;,
+  &quot;type&quot;:&quot;account&quot;
+},
+{
+  &quot;name&quot;:&quot;amount&quot;,
+  &quot;type&quot;:&quot;uint64&quot;
+},
+{
+  &quot;name&quot;:&quot;source&quot;,
+  &quot;type&quot;:&quot;string&quot;
+}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>acceptAdmin</p></li>
+</ul>
+</li>
+</ul>
+<p>3、<strong>查询管理员getAdmin</strong></p>
+<ul class="simple">
+<li><p>方法名称：getAdmin</p></li>
+<li><p>描述：查询系统管理员</p></li>
+<li><p>传入参数及意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>1.表示管理员地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发event：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+<p>4、<strong>设置全局参数setParams</strong></p>
+<ul class="simple">
+<li><p>方法名称：setParams</p></li>
+<li><p>描述：设置全局参数</p></li>
+<li><p>传入参数及意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数为一个数组</p>
+<ol class="simple">
+<li><p>成员是个结构体，表示一个全局参数对象</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;params&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;param&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;key&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发event：</p>
+<ul>
+<li><p>setParams</p></li>
+</ul>
+</li>
+</ul>
+<p>5、<strong>应用全局参数applyParams</strong></p>
+<ul class="simple">
+<li><p>方法名称：applyParams</p></li>
+<li><p>描述：是的设置的全局参数生效</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>applyParams</p></li>
+</ul>
+</li>
+</ul>
+<p>6、<strong>获取全局参数getParams</strong></p>
+<ul>
+<li><p>方法名称：getParams</p></li>
+<li><p>描述：查询全局参数</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数为一个数组</p></li>
+</ol>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>成员是一个全局参数对象的名称</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;keyList&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;key&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数为一个数组</p>
+<ol class="simple">
+<li><p>成员表示一个全局参数对象的值</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;values&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;components&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>7、<strong>获取所有全局参数getAllParams</strong></p>
+<ul class="simple">
+<li><p>方法名称：getParams</p></li>
+<li><p>描述：查询全局参数</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>该参数为一个数组</p>
+<ol class="simple">
+<li><p>数组成员为一个结构体，具有两个成员：</p>
+<ol class="simple">
+<li><p>key：string类型</p></li>
+<li><p>value：string类型</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>        <span class="p">{</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;params&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;param&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;struct&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;components&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span>
+                <span class="p">}</span>
+              <span class="p">]</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>8、<strong>设置操作人setOperator</strong></p>
+<ul class="simple">
+<li><p>方法名称：setOperator</p></li>
+<li><p>描述：设置操作人operator，operator可以修改全局参数</p></li>
+<li><p>传入参数及意义：</p>
+<ul>
+<li><p>传入一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><ol class="simple">
+<li><p>表示新的操作人的地址</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;newOperator&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>返回值及其意义：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+<li><p>触发event：</p>
+<ul>
+<li><p>setOperator</p></li>
+</ul>
+</li>
+</ul>
+<p>9、<strong>查询操作人getOperator</strong></p>
+<ul class="simple">
+<li><p>方法名称：setOperator</p></li>
+<li><p>传入参数及其意义：</p>
+<ul>
+<li><p>无（</p></li>
+</ul>
+</li>
+<li><p>返回值及其意义</p>
+<ul>
+<li><p>返回一个<a class="reference external" href="#xtar合约设计文档">ContractArg</a>合约参数</p>
+<ul>
+<li><p>1.代表操作人地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;operator&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>触发event：</p>
+<ul>
+<li><p>无</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="event">
+<span id="event"></span><h2>可触发合约事件event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h2>
+<p>1.<strong>请求转换管理员transferAdmin事件</strong></p>
+<ul class="simple">
+<li><p>event名称：transferAdmin</p></li>
+<li><p>描述：请求转换管理员的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.transferAdmin</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token注册后相关实体:</p>
+<ul>
+<li><p>2.旧的管理员地址</p></li>
+<li><p>3.新的管理员地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;:&quot;oldAdmin&quot;,
+  &quot;type&quot;:&quot;account&quot;
+},
+{
+  &quot;name&quot;:&quot;newAdmin&quot;,
+  &quot;type&quot;:&quot;account&quot;
+}
+</pre></div>
+</div>
+<p>2.<strong>接受成为新管理员acceptAdmin事件</strong></p>
+<ul class="simple">
+<li><p>event名称：acceptAdmin</p></li>
+<li><p>描述：接受成为新管理员的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.acceptAdmin</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token发行的相关参数：</p>
+<ul>
+<li><p>2.旧管理员地址</p></li>
+<li><p>3.新管理员地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;:&quot;oldAdmin&quot;,
+  &quot;type&quot;:&quot;account&quot;
+},
+{
+  &quot;name&quot;:&quot;newAdmin&quot;,
+  &quot;type&quot;:&quot;account&quot;
+}
+</pre></div>
+</div>
+<p>3.<strong>设置全局参数setParams事件</strong></p>
+<ul class="simple">
+<li><p>event名称：setParams</p></li>
+<li><p>描述：设置全局参数时返回的收据</p></li>
+<li><p>event_logs参数及其意义：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.setParams</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表token发行的相关参数：</p>
+<ul>
+<li><p>2.设置的全局参数的字符串表示</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;newParams&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>4.<strong>使得全局参数生效applyParams事件</strong></p>
+<ul class="simple">
+<li><p>event名称：applyParams</p></li>
+<li><p>描述：使得合约中方法setParams设置的全局参数生效</p></li>
+<li><p>event_logs及其参数：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.applyParams</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul>
+<li><p>2.所有全局参数及其值的字符串表示</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;params&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>5.<strong>设置操作人setOperator事件</strong></p>
+<ul class="simple">
+<li><p>event名称：setOperator</p></li>
+<li><p>描述：设置操作人</p></li>
+<li><p>event_logs及其参数：</p>
+<ul>
+<li><p>第一个参数为event名称</p>
+<ul>
+<li><p>1.setOperator</p></li>
+</ul>
+</li>
+<li><p>第二个参数开始代表:</p>
+<ul>
+<li><p>2.新操作人地址</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;newOperator&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;account&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="07resource.html" class="btn btn-neutral float-right" title="Resource合约" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="04dex.html" class="btn btn-neutral float-left" title="DEX合约" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

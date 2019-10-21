@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bithumb Chain客户端 &mdash; Bithumb Chain 文档 V1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="快速开始" href="commands/getting_started.html" />
+    <link rel="prev" title="Timer合约" href="functions/16timer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Bithumb Chain功能</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bithumb Chain客户端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/getting_started.html">快速开始</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/connect_to_client.html">连接到Bithumb Chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/cli_usage.html">命令行索引</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/running_node.html">节点部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/account.html">账户管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/info.html">信息获取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/asset.html">资产管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/resource.html">资源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/ram.html">内存管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/token.html">一键资产映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/xns.html">域名管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/transaction.html">交易相关</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Bithumb Chain客户端</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/command.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bithumb-chain">
+<h1>Bithumb Chain客户端<a class="headerlink" href="#bithumb-chain" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/getting_started.html">快速开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/getting_started.html#">概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/getting_started.html#">安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/getting_started.html#">快速开始</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/connect_to_client.html">连接到Bithumb Chain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/connect_to_client.html#">基于客户端进行调用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/connect_to_client.html#sdk">基于 SDK 进行调用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/connect_to_client.html#">使用公开节点</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/cli_usage.html">命令行索引</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/cli_usage.html#">命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/cli_usage.html#">参数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/running_node.html">节点部署</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/running_node.html#">部署共识节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/running_node.html#">部署同步节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/running_node.html#">常见问题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/account.html">账户管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/account.html#">签名算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/account.html#">创建账户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/account.html#">查看账户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/account.html#">修改账户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/account.html#">导入账户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/account.html#">常见问题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/info.html">信息获取</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/info.html#">区块信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/info.html#">交易信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/info.html#">日志信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/info.html#">合约信息</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/asset.html">资产管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/asset.html#">账户余额</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/asset.html#">转账</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/asset.html#">授权转账</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/asset.html#">授权查询</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/asset.html#">授权账户转账</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/asset.html#">常见问题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/resource.html">资源管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/resource.html#cpu">抵押获取带宽/CPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/resource.html#">抵押信息查询</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/resource.html#">取消抵押</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/resource.html#">退回抵押</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/resource.html#">查询可用带宽</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/resource.html#cpu">查询可用CPU</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/ram.html">内存管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/ram.html#ram">账户查询RAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/ram.html#ram">购买RAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/ram.html#ram">购买指定字节RAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/ram.html#ram">出售RAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/token.html">一键资产映射</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/token.html#token">token注册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/token.html#token">token发行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/token.html#token">销毁token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/token.html#">信息查询</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/xns.html">域名管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/xns.html#">域名注册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/xns.html#">查询域名</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/transaction.html">交易相关</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands/transaction.html#">转账</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/transaction.html#">查询交易</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/transaction.html#">签名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/transaction.html#">交易多签</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands/transaction.html#">发送交易</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commands/getting_started.html" class="btn btn-neutral float-right" title="快速开始" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="functions/16timer.html" class="btn btn-neutral float-left" title="Timer合约" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

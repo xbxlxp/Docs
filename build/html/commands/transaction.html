@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>交易相关 &mdash; Bithumb Chain 文档 V1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RPC API" href="../rpc_api.html" />
+    <link rel="prev" title="域名管理" href="xns.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function.html">Bithumb Chain功能</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">快速开始</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect_to_client.html">连接到Bithumb Chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_usage.html">命令行索引</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_node.html">节点部署</a></li>
+<li class="toctree-l2"><a class="reference internal" href="account.html">账户管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info.html">信息获取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asset.html">资产管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resource.html">资源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ram.html">内存管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="token.html">一键资产映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xns.html">域名管理</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">交易相关</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">转账</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">查询交易</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">签名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">交易多签</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">发送交易</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rpc_api.html">RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../command.html">Bithumb Chain客户端</a> &raquo;</li>
+        
+      <li>交易相关</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/commands/transaction.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>交易相关<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<p>Bithumb Chain客户端 <code class="docutils literal notranslate"><span class="pre">Bithumb</span> <span class="pre">Chain</span> <span class="pre">CLI</span></code> 提供了构造交易模块，用于构造对原生资产 <code class="docutils literal notranslate"><span class="pre">BT</span></code> 进行操作的交易。</p>
+<p>为了使所构造的交易有效，交易在发送到链上之前，需要使用钱包账户进行签名。</p>
+<div class="section" id="">
+<span id="id2"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=转账">转账</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>在构造交易模块中，<code class="docutils literal notranslate"><span class="pre">transfer</span></code> 命令用于构造转账交易，注意加上<code class="docutils literal notranslate"><span class="pre">--print-tx,</span> <span class="pre">-t</span></code> 参数。</p>
+<p>你可以在第一个终端启动本地测试网：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli <span class="m">0</span>
+</pre></div>
+</div>
+<p>然后在第二个终端中构造转账交易：</p>
+<p>构造 BT 转账交易（ <code class="docutils literal notranslate"><span class="pre">-t</span></code> 表示预执行并打印十六进制的交易内容，不发送到网络）</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset transfer --from<span class="o">=</span><span class="m">0</span> --to<span class="o">=</span><span class="m">1</span> --amount<span class="o">=</span><span class="m">6</span> -t
+Tranfer
+From:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+To:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Amount:6
+TxHash:638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe
+RawTx:<span class="o">=</span>&gt;
+0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a4500
+</pre></div>
+</div>
+<p>通过以十六进制字符串显示的序列化交易查询构造的交易明细：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli tx show 0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a4500
+
+No.1:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;tx_type&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;version&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;nonce&quot;</span>: <span class="m">2233159513789502096</span>,
+   <span class="s2">&quot;payload&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+      <span class="s2">&quot;method&quot;</span>: <span class="s2">&quot;transfer&quot;</span>,
+      <span class="s2">&quot;args&quot;</span>: <span class="s2">&quot;0c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a4344726690606&quot;</span>
+   <span class="o">}</span>,
+   <span class="s2">&quot;attributes&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;payer&quot;</span>: <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+   <span class="s2">&quot;sig&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;hash&quot;</span>: <span class="s2">&quot;638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>对转账交易使用扣款账户进行签名：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli tx sig --signer<span class="o">=</span><span class="m">0</span> 0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a4500
+Singer account
+Please input password
+Password:
+Signer:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+Signed raw tx:<span class="o">=</span>&gt;
+0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a45010101025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc820101410112560b2e133227e2f94fb218131149842aa2e3be9ddbea08eb4d5dd98dd43e76165f134149c615db5346cce01a2e0288c83377faccd26d77c9a7697663abca9f
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: 请确保 <code class="docutils literal notranslate"><span class="pre">--signer</span></code> 指定的地址和转账时 <code class="docutils literal notranslate"><span class="pre">--from</span></code> 指定的地址一致。</p>
+</div></blockquote>
+<p>通过十六进制的交易内容查询交易明细：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli tx show 0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a45010101025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc820101410112560b2e133227e2f94fb218131149842aa2e3be9ddbea08eb4d5dd98dd43e76165f134149c615db5346cce01a2e0288c83377faccd26d77c9a7697663abca9f
+
+No.1:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;tx_type&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;version&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;nonce&quot;</span>: <span class="m">2233159513789502096</span>,
+   <span class="s2">&quot;payload&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+      <span class="s2">&quot;method&quot;</span>: <span class="s2">&quot;transfer&quot;</span>,
+      <span class="s2">&quot;args&quot;</span>: <span class="s2">&quot;0c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a4344726690606&quot;</span>
+   <span class="o">}</span>,
+   <span class="s2">&quot;attributes&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;payer&quot;</span>: <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+   <span class="s2">&quot;sig&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;public_keys&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;01025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc82&quot;</span>
+         <span class="o">]</span>,
+         <span class="s2">&quot;m&quot;</span>: <span class="m">1</span>,
+         <span class="s2">&quot;sig_data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;0112560b2e133227e2f94fb218131149842aa2e3be9ddbea08eb4d5dd98dd43e76165f134149c615db5346cce01a2e0288c83377faccd26d77c9a7697663abca9f&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>,
+   <span class="s2">&quot;hash&quot;</span>: <span class="s2">&quot;638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>将转账交易发送到测试网：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli asset balance <span class="m">0</span> <span class="m">1</span>
+Address:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+XTAR balance:<span class="o">=</span>&gt;
+<span class="m">999998976</span>
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+XTAR balance:<span class="o">=</span>&gt;
+<span class="m">1000</span>
+$ xtar-cli tx send 0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a45010101025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc820101410112560b2e133227e2f94fb218131149842aa2e3be9ddbea08eb4d5dd98dd43e76165f134149c615db5346cce01a2e0288c83377faccd26d77c9a7697663abca9f
+TxHash:638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe
+Waiting <span class="k">for</span> eventLog...
+EventLog:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">3027</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;net_usage&quot;</span>: <span class="m">214</span>,
+   <span class="s2">&quot;cpu_usage&quot;</span>: <span class="m">40</span>,
+   <span class="s2">&quot;ram_usage&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+            <span class="s2">&quot;AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9&quot;</span>,
+            <span class="s2">&quot;6&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+$ xtar-cli asset balance <span class="m">0</span> <span class="m">1</span>
+Address:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+XTAR balance:<span class="o">=</span>&gt;
+<span class="m">999998970</span>
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+XTAR balance:<span class="o">=</span>&gt;
+<span class="m">1006</span>
+</pre></div>
+</div>
+<p>根据交易哈希查询交易状态：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli info tx 638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe
+Transaction:638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe <span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;Height&quot;</span>: <span class="m">3027</span>,
+   <span class="s2">&quot;Tx&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;tx_type&quot;</span>: <span class="m">0</span>,
+      <span class="s2">&quot;version&quot;</span>: <span class="m">0</span>,
+      <span class="s2">&quot;nonce&quot;</span>: <span class="m">2233159513789502096</span>,
+      <span class="s2">&quot;payload&quot;</span>: <span class="o">{</span>
+         <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;method&quot;</span>: <span class="s2">&quot;transfer&quot;</span>,
+         <span class="s2">&quot;args&quot;</span>: <span class="s2">&quot;0c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a4344726690606&quot;</span>
+      <span class="o">}</span>,
+      <span class="s2">&quot;attributes&quot;</span>: <span class="o">[]</span>,
+      <span class="s2">&quot;payer&quot;</span>: <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+      <span class="s2">&quot;sig&quot;</span>: <span class="o">[</span>
+         <span class="o">{</span>
+            <span class="s2">&quot;public_keys&quot;</span>: <span class="o">[</span>
+               <span class="s2">&quot;01025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc82&quot;</span>
+            <span class="o">]</span>,
+            <span class="s2">&quot;m&quot;</span>: <span class="m">1</span>,
+            <span class="s2">&quot;sig_data&quot;</span>: <span class="o">[</span>
+               <span class="s2">&quot;0112560b2e133227e2f94fb218131149842aa2e3be9ddbea08eb4d5dd98dd43e76165f134149c615db5346cce01a2e0288c83377faccd26d77c9a7697663abca9f&quot;</span>
+            <span class="o">]</span>
+         <span class="o">}</span>
+      <span class="o">]</span>,
+      <span class="s2">&quot;hash&quot;</span>: <span class="s2">&quot;638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe&quot;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=查询交易">查询交易</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Bithumb Chain客户端 <code class="docutils literal notranslate"><span class="pre">Bithumb</span> <span class="pre">Chain</span> <span class="pre">CLI</span></code> 提供了交易反序列化模块，用于将以十六进制字符串显示的序列化交易反序列化为 JSON 格式。可以在命令行中通过 <code class="docutils literal notranslate"><span class="pre">show</span></code> 命令使用。</p>
+<p>你可以在需要的时候通过 <code class="docutils literal notranslate"><span class="pre">help</span></code> 命令获取交易反序列化模块的帮助信息。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli tx show 0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a4500
+
+No.1:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;tx_type&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;version&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;nonce&quot;</span>: <span class="m">2233159513789502096</span>,
+   <span class="s2">&quot;payload&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+      <span class="s2">&quot;method&quot;</span>: <span class="s2">&quot;transfer&quot;</span>,
+      <span class="s2">&quot;args&quot;</span>: <span class="s2">&quot;0c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a4344726690606&quot;</span>
+   <span class="o">}</span>,
+   <span class="s2">&quot;attributes&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;payer&quot;</span>: <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+   <span class="s2">&quot;sig&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;hash&quot;</span>: <span class="s2">&quot;638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=签名">签名</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Bithumb Chain客户端 <code class="docutils literal notranslate"><span class="pre">Bithumb</span> <span class="pre">Chain</span> <span class="pre">CLI</span></code> 提供了交易签名模块，用于对以十六进制字符串显示的序列化交易进行签名。可以在命令行中通过 <code class="docutils literal notranslate"><span class="pre">sig</span></code> 命令使用。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--signer</span></code>：指定签名账户（默认为钱包默认账户）。</p></li>
+<li><p>如果支付交易手续费的账户和交易中的签名账户不同，则该交易还需要支付手续费的账户进行签名。</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli tx sig --signer<span class="o">=</span><span class="m">0</span> 0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a4500
+Singer account
+Please input password
+Password:
+Signer:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
+Signed raw tx:<span class="o">=</span>&gt;
+0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a45010101025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc820101410112560b2e133227e2f94fb218131149842aa2e3be9ddbea08eb4d5dd98dd43e76165f134149c615db5346cce01a2e0288c83377faccd26d77c9a7697663abca9f
+</pre></div>
+</div>
+<p>在对交易进行签名时，我们可以通过 <code class="docutils literal notranslate"><span class="pre">-s</span></code> 选项指定对交易签名后进行本地预执行，以验证交易是否存在问题。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli tx send 0000881efdc6befa3512900000000000000000000000000000000000000001087472616e73666572300c010d030a621fc1db6be573451def1271530d843e378c2a450a28d1241e6b77872eca282a18e68d55a434472669060600621fc1db6be573451def1271530d843e378c2a45010101025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc820101410112560b2e133227e2f94fb218131149842aa2e3be9ddbea08eb4d5dd98dd43e76165f134149c615db5346cce01a2e0288c83377faccd26d77c9a7697663abca9f -s
+<span class="nv">Result</span> <span class="o">=</span>&gt; nil
+<span class="nv">EventLog</span> <span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">3009</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;net_usage&quot;</span>: <span class="m">214</span>,
+   <span class="s2">&quot;cpu_usage&quot;</span>: <span class="m">40</span>,
+   <span class="s2">&quot;ram_usage&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn&quot;</span>,
+            <span class="s2">&quot;AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9&quot;</span>,
+            <span class="s2">&quot;6&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=交易多签">交易多签</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Bithumb Chain客户端 <code class="docutils literal notranslate"><span class="pre">Bithumb</span> <span class="pre">Chain</span> <span class="pre">CLI</span></code> 提供了多重签名模块，用于对以十六进制字符串显示的序列化交易进行签名。可以在命令行中通过 <code class="docutils literal notranslate"><span class="pre">multisig</span></code> 命令使用。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--signer</span></code>：指定签名账户（默认使用钱包默认账户）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--publickeys</span></code>：指定多重签名的公钥列表，公钥之间用 <code class="docutils literal notranslate"><span class="pre">,</span></code> 分隔。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-m</span></code>：指定签名门限（默认为 <code class="docutils literal notranslate"><span class="pre">0</span></code>）。</p></li>
+</ul>
+<p>在多重签名中，需要使用公钥列表中的不同的账户对同一笔交易进行签名，一个账户签名后，返回的带签名交易需要作为下一个账户签名的输入，直到满足签名门限 <code class="docutils literal notranslate"><span class="pre">m</span></code>。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>首先需要生成一个多签地址：
+$ xtar-cli utils multisig --publickeys<span class="o">=</span>0103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1,010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac,01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea818994 --m<span class="o">=</span><span class="m">2</span>
+Multi-Sig address:<span class="o">=</span>&gt; XvWMsWgNYqprQjXSz7fnk4VoaSY57o6yy9
+其次需要给多签地址转一定数量的BT并购买RAM，抵押一定量BT确保该多签地址有带宽/CPU。
+用多签地址构造转账交易:
+$ xtar-cli asset transfer --from<span class="o">=</span>XvWMsWgNYqprQjXSz7fnk4VoaSY57o6yy9 --to<span class="o">=</span><span class="m">1</span> --amount<span class="o">=</span><span class="m">50</span> -t
+Tranfer
+From:XvWMsWgNYqprQjXSz7fnk4VoaSY57o6yy9
+To:XoQmE9zQj14CP8zzGSgmv27BsQp3YqST2p
+Amount:50
+TxHash:46b9addc4d71969afb04261f7ea4cc41b17349b6d0eda0009facc80f5be07476
+RawTx:<span class="o">=</span>&gt;
+000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c000
+用多签的第一个地址对交易进行签名：
+$ xtar-cli tx multisig --signer<span class="o">=</span><span class="m">0</span> --publickeys<span class="o">=</span>0103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1,010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac,01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea818994 --m<span class="o">=</span><span class="m">2</span> 000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c000
+Singer account
+Please input password
+Password:
+Signer:XbGqvpUNHkoR2jBfwWUYvPaQQPSmK9cpQT
+Signed raw tx:<span class="o">=</span>&gt;
+000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c001030103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea81899402014101bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b4255
+查询交易明细：
+$ xtar-cli tx show 000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c001030103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea81899402014101bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b4255
+No.1:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;tx_type&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;version&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;nonce&quot;</span>: <span class="m">16355127867990385436</span>,
+   <span class="s2">&quot;payload&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;contract_account&quot;</span>: <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span>,
+      <span class="s2">&quot;method&quot;</span>: <span class="s2">&quot;transfer&quot;</span>,
+      <span class="s2">&quot;args&quot;</span>: <span class="s2">&quot;0c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e10632&quot;</span>
+   <span class="o">}</span>,
+   <span class="s2">&quot;attributes&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;payer&quot;</span>: <span class="s2">&quot;XvWMsWgNYqprQjXSz7fnk4VoaSY57o6yy9&quot;</span>,
+   <span class="s2">&quot;sig&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;public_keys&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;0103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1&quot;</span>,
+            <span class="s2">&quot;010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac&quot;</span>,
+            <span class="s2">&quot;01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea818994&quot;</span>
+         <span class="o">]</span>,
+         <span class="s2">&quot;m&quot;</span>: <span class="m">2</span>,
+         <span class="s2">&quot;sig_data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;01bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b4255&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>,
+   <span class="s2">&quot;hash&quot;</span>: <span class="s2">&quot;46b9addc4d71969afb04261f7ea4cc41b17349b6d0eda0009facc80f5be07476&quot;</span>
+<span class="o">}</span>
+用多签的第二个地址对交易进行签名：
+$ xtar-cli tx multisig --signer<span class="o">=</span><span class="m">1</span> --publickeys<span class="o">=</span>0103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1,010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac,01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea818994 --m<span class="o">=</span><span class="m">2</span> 000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c001030103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea81899402014101bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b4255
+Singer account
+Please input password
+Password:
+Signer:XoQmE9zQj14CP8zzGSgmv27BsQp3YqST2p
+Signed raw tx:<span class="o">=</span>&gt;
+000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c001030103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea81899402024101bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b42554101985c92c7ff49ea1f65f55c2a4a417b9228a2d3e875ef1cadb90e1e893b9fbe97b1176df2d80dfaf015597bed96ce742f8709136170eff7400779fff53c60ee5d
+查询交易明细：
+$ xtar-cli tx show 000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c001030103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea81899402024101bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b42554101985c92c7ff49ea1f65f55c2a4a417b9228a2d3e875ef1cadb90e1e893b9fbe97b1176df2d80dfaf015597bed96ce742f8709136170eff7400779fff53c60ee5d
+No.1:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;tx_type&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;version&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;nonce&quot;</span>: <span class="m">16355127867990385436</span>,
+   <span class="s2">&quot;payload&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;contract_account&quot;</span>: <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span>,
+      <span class="s2">&quot;method&quot;</span>: <span class="s2">&quot;transfer&quot;</span>,
+      <span class="s2">&quot;args&quot;</span>: <span class="s2">&quot;0c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e10632&quot;</span>
+   <span class="o">}</span>,
+   <span class="s2">&quot;attributes&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;payer&quot;</span>: <span class="s2">&quot;XvWMsWgNYqprQjXSz7fnk4VoaSY57o6yy9&quot;</span>,
+   <span class="s2">&quot;sig&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;public_keys&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;0103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1&quot;</span>,
+            <span class="s2">&quot;010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac&quot;</span>,
+            <span class="s2">&quot;01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea818994&quot;</span>
+         <span class="o">]</span>,
+         <span class="s2">&quot;m&quot;</span>: <span class="m">2</span>,
+         <span class="s2">&quot;sig_data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;01bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b4255&quot;</span>,
+            <span class="s2">&quot;01985c92c7ff49ea1f65f55c2a4a417b9228a2d3e875ef1cadb90e1e893b9fbe97b1176df2d80dfaf015597bed96ce742f8709136170eff7400779fff53c60ee5d&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>,
+   <span class="s2">&quot;hash&quot;</span>: <span class="s2">&quot;46b9addc4d71969afb04261f7ea4cc41b17349b6d0eda0009facc80f5be07476&quot;</span>
+<span class="o">}</span>
+交易预执行：
+$ xtar-cli tx send 0000883b1776a9cd74b2f90000000000000000000000000000000000000001087472616e73666572300c010d030a73519bf563b661806343359c8440948d7fdf33f70a1447571e41272067eecbe1107de7e77217a94afd060a0073519bf563b661806343359c8440948d7fdf33f7010301025c381425dc4f7f5dc84e44272092293f18ff6d2e3b408b0b7efdb55d2544dc8201024724eefe8bba8f51e086aec1415795a6b7f08dbe019e374b106e7b0123f928c301023b8e2cd57314b0b1ae80e0ef003ca8e858e9c55f346b4a15fdf221c3c9656e43020241012783cb88406364794842486012c69367a25e093b7e633cc2b62f726a0703d0b003f3b1a7bbc1c1bd25bb9a36edd8b33fb2d43353569be3de291d1dd1a94cee744101b65a39c232f7931ef6371eefa10fd83933f77b7131f927b4b8eca3a7d547e6604413a1657507e36bac05fb828f02c9981ff50c64b074accfd74520d8f958be37 -s
+<span class="nv">Result</span> <span class="o">=</span>&gt; nil
+<span class="nv">EventLog</span> <span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">4384</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;57b100eefc16ec5cbbf6e23db3e1fe9ab37c1f2478f4cd9d2d17c5ee49b5c6b6&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;net_usage&quot;</span>: <span class="m">348</span>,
+   <span class="s2">&quot;cpu_usage&quot;</span>: <span class="m">40</span>,
+   <span class="s2">&quot;ram_usage&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;ASHd7sCgfomwJz1vzor7wHJhP8ZY3d88yV&quot;</span>,
+         <span class="s2">&quot;ram_usage&quot;</span>: <span class="s2">&quot;41&quot;</span>
+      <span class="o">}</span>
+   <span class="o">]</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;ASHd7sCgfomwJz1vzor7wHJhP8ZY3d88yV&quot;</span>,
+            <span class="s2">&quot;AHd6d9SFVWsXPa7BPmz7hhBaZzKeWGMoPP&quot;</span>,
+            <span class="s2">&quot;10&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+发送交易：
+$ xtar-cli tx send 000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c001030103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea81899402024101bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b42554101985c92c7ff49ea1f65f55c2a4a417b9228a2d3e875ef1cadb90e1e893b9fbe97b1176df2d80dfaf015597bed96ce742f8709136170eff7400779fff53c60ee5d
+TxHash:46b9addc4d71969afb04261f7ea4cc41b17349b6d0eda0009facc80f5be07476
+Waiting <span class="k">for</span> eventLog...
+EventLog:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">4989</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;46b9addc4d71969afb04261f7ea4cc41b17349b6d0eda0009facc80f5be07476&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;net_usage&quot;</span>: <span class="m">351</span>,
+   <span class="s2">&quot;cpu_usage&quot;</span>: <span class="m">40</span>,
+   <span class="s2">&quot;ram_usage&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;XvWMsWgNYqprQjXSz7fnk4VoaSY57o6yy9&quot;</span>,
+            <span class="s2">&quot;XoQmE9zQj14CP8zzGSgmv27BsQp3YqST2p&quot;</span>,
+            <span class="s2">&quot;50&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2><a class="reference external" href="https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=发送交易">发送交易</a><a class="headerlink" href="#" title="Permalink to this headline">¶</a></h2>
+<p>Bithumb Chain客户端 <code class="docutils literal notranslate"><span class="pre">Bithumb</span> <span class="pre">Chain</span> <span class="pre">CLI</span></code> 提供了交易发送模块，用于将以十六进制字符串显示的序列化交易发送到所接入的网络。可以在命令行中通过 <code class="docutils literal notranslate"><span class="pre">send</span></code> 命令使用。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--simulate-exec,</span> <span class="pre">-s</span></code>：用于指定预执行交易。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--disable-wait-evtlog</span></code>：关闭<code class="docutils literal notranslate"><span class="pre">event</span> <span class="pre">log</span></code>日志。</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xtar-cli tx send 000088e2f916248ba8a31c010000000000000000000000000000000000000001087472616e73666572320c010d030a01d96703edd81dc5264104276a03f5f832edae71c00a018b8f22b8a5c4de2e404fd3eff88920e121b486e1063200d96703edd81dc5264104276a03f5f832edae71c001030103f014512badcbe07796cdc0540abc1541da9d619b706a10541cf220aa8a8182a1010201222267f598b54b9fb269459ecf118b7dbc03f3f182ebabd56e009d176627ac01033a0861751f01533ed2498438d304e1c2e9de504da8c226d8c4dbd34aea81899402024101bb229669904efe4cd7953a2bdd501c81d4051d87ee5ffa5324c0b3088e1b06c1e02da6663d9a4142a7ba6ce5e875e535f258736ab12079940873f5cddc1b42554101985c92c7ff49ea1f65f55c2a4a417b9228a2d3e875ef1cadb90e1e893b9fbe97b1176df2d80dfaf015597bed96ce742f8709136170eff7400779fff53c60ee5d
+TxHash:46b9addc4d71969afb04261f7ea4cc41b17349b6d0eda0009facc80f5be07476
+Waiting <span class="k">for</span> eventLog...
+EventLog:<span class="o">=</span>&gt;
+<span class="o">{</span>
+   <span class="s2">&quot;height&quot;</span>: <span class="m">4989</span>,
+   <span class="s2">&quot;tx_hash&quot;</span>: <span class="s2">&quot;46b9addc4d71969afb04261f7ea4cc41b17349b6d0eda0009facc80f5be07476&quot;</span>,
+   <span class="s2">&quot;error_code&quot;</span>: <span class="m">0</span>,
+   <span class="s2">&quot;net_usage&quot;</span>: <span class="m">351</span>,
+   <span class="s2">&quot;cpu_usage&quot;</span>: <span class="m">40</span>,
+   <span class="s2">&quot;ram_usage&quot;</span>: <span class="o">[]</span>,
+   <span class="s2">&quot;event_logs&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+         <span class="s2">&quot;contract&quot;</span>: <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span>,
+         <span class="s2">&quot;data&quot;</span>: <span class="o">[</span>
+            <span class="s2">&quot;transfer&quot;</span>,
+            <span class="s2">&quot;XvWMsWgNYqprQjXSz7fnk4VoaSY57o6yy9&quot;</span>,
+            <span class="s2">&quot;XoQmE9zQj14CP8zzGSgmv27BsQp3YqST2p&quot;</span>,
+            <span class="s2">&quot;50&quot;</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rpc_api.html" class="btn btn-neutral float-right" title="RPC API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="xns.html" class="btn btn-neutral float-left" title="域名管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

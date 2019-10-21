@@ -1,0 +1,190 @@
+# Token管理
+
+Xtar客户端 `xtar-CLI` 提供了token管理模块，可以非常方便的在链上注册自己的 `token` 和发行任意数量的token。可以在命令行中通过 `token` 命令实现：
+
+- 对 `token` 的注册、发行、销毁。
+- 对 `token` 的信息查询。
+
+此外，你可以通过 `help` 命令获取钱包管理模块的帮助信息 。
+
+```shell
+xtar-cli token help
+```
+
+## [token注册](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=注册)
+
+要注册token，使用 `register` 命令：
+
+```bash
+$ xtar-cli token register --symbol eos --decimal 8 --total-supply 100000000 --issuer 1 --version 1.0 --name eos --author AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9 --email ******@**.com --desc eos1
+Issuer account
+Please input password
+Password:
+Register token:
+Symbol:eos
+Decimal:8
+Total supply:100000000
+Issuer:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+TxHash:efe1bf4ac2849a7064bbe5a5270a90459edd6db452b36c4a6ca45ceb6fe67695
+Waiting for eventLog...
+EventLog:=>
+{
+   "height": 2432,
+   "tx_hash": "efe1bf4ac2849a7064bbe5a5270a90459edd6db452b36c4a6ca45ceb6fe67695",
+   "error_code": 0,
+   "gas_consumed": 0,
+   "event_logs": [
+      {
+         "contract": "0000000000000000000000000000000000000003",
+         "data": [
+            "register",
+            "50bda34e79dcd3f6d3049bab733dc0284cd6c968",
+            "eos",
+            "8",
+            "100000000"
+         ]
+      }
+   ]
+}
+```
+
+在注册模块中， `register` 命令所支持的选项如下表所示，也可以通过 `--help` 选项获取帮助信息。
+
+```shell
+xtar-cli token register --help
+```
+
+| 选项             | 描述                                                |
+| ---------------- | --------------------------------------------------- |
+| `--symbol`       | 指定 `token` 的象征符号                             |
+| `--decimal`      | 指定 `token` 的小数位，最大支持的小数位是8，默认：8 |
+| `--total-supply` | 指定 `token` 的总发行量，最大支持1000亿，默认：0    |
+| `--issuer`       | 指定 `token` 的发行者地址或者地址索引               |
+| `--version`      | 指定 `token` 合约的版本                             |
+| `--name`         | 指定 `token` 合约名称                               |
+| `--author`       | 指定 `token` 合约的所有者                           |
+| `--email`        | 指定 `token` 合约的联系信箱                         |
+| `--desc`         | 指定 `token` 合约的描述信息                         |
+
+## [token发行](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=发行)
+
+`token` 注册之后可以根据需要发行token，使用 `issue` 选项即可：
+
+```shell
+$ xtar-cli token issue --amount 10 --issuer 1 --address 50bda34e79dcd3f6d3049bab733dc0284cd6c968 --source 2
+Issuer account
+Please input password
+Password:
+Issue token
+TokenAddress:50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Issuer:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Issue amount:10
+Source:2
+TxHash:0266faafb1d28d925df9feb7ba5453d0b05fb8a88b8a7e344a54bd0b355c9279
+Waiting for eventLog...
+EventLog:=>
+{
+   "height": 2616,
+   "tx_hash": "0266faafb1d28d925df9feb7ba5453d0b05fb8a88b8a7e344a54bd0b355c9279",
+   "error_code": 0,
+   "gas_consumed": 0,
+   "event_logs": [
+      {
+         "contract": "0000000000000000000000000000000000000003",
+         "data": [
+            "issue",
+            "50bda34e79dcd3f6d3049bab733dc0284cd6c968",
+            "AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9",
+            "10",
+            "2"
+         ]
+      }
+   ]
+}
+```
+
+token发行后的查询：
+
+```shell
+$ xtar-cli asset balance 1 -asset-type 50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Token:50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Balance:10
+```
+
+在发行模块中， `issue` 命令所支持的选项如下表所示，也可以通过 `--help` 选项获取帮助信息。
+
+```shell
+xtar-cli token issue --help
+```
+
+| 选项        | 描述                                                        |
+| ----------- | ----------------------------------------------------------- |
+| `--amount`  | 指定 `token` 发行的数量                                     |
+| `--issuer`  | 指定 `token` 的发行者地址或者地址索引，需和注册的issuer相同 |
+| `--address` | 指定 `token` 合约的地址                                     |
+| `--source`  | 指定 `token` 的发行者地址或销毁的transaction地址            |
+
+## [销毁token](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=销毁)
+
+如果要销毁发行账户的 `token` ，可以使用 `destroy` 命令来减少发行量：
+
+```shell
+查询发行token的余额:
+$ xtar-cli asset balance 1 -asset-type 50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Token:50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Balance:20
+
+销毁token:
+$ xtar-cli token destroy --amount 5 --issuer 1 --address 50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Issuer account
+Please input password
+Password:
+Destroy token
+TokenAddress:50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Issuer:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Destroy amount:5
+Source:
+TxHash:4370af96f5385f95e38199234db68834f62bf4d714e009772a68ededff4e1218
+Waiting for eventLog...
+EventLog:=>
+{
+   "height": 2875,
+   "tx_hash": "4370af96f5385f95e38199234db68834f62bf4d714e009772a68ededff4e1218",
+   "error_code": 0,
+   "gas_consumed": 0,
+   "event_logs": [
+      {
+         "contract": "0000000000000000000000000000000000000003",
+         "data": [
+            "destroy",
+            "50bda34e79dcd3f6d3049bab733dc0284cd6c968",
+            "AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9",
+            "5",
+            ""
+         ]
+      }
+   ]
+}
+
+再次查询余额：
+$ xtar-cli asset balance 1 -asset-type 50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Address:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+Token:50bda34e79dcd3f6d3049bab733dc0284cd6c968
+Balance:15
+```
+
+## [信息查询](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=信息查询)	
+
+要对`token` 信息进行查询，使用 `info` 命令：
+
+```shell
+$ xtar-cli token info 50bda34e79dcd3f6d3049bab733dc0284cd6c968
+TokenAddress:50bda34e79dcd3f6d3049bab733dc0284cd6c968 =>
+Symbol:eos
+Decimal:8
+Supply:15
+TotalSupply:100000000
+Issuer:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
+```

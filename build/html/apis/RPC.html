@@ -1,0 +1,1006 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RPC &mdash; Bithumb Chain 文档 V1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Websocket" href="Websocket.html" />
+    <link rel="prev" title="概述" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bithumb Chain 文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getstarted.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chain.html">Bithumb Chain介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function.html">Bithumb Chain功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command.html">Bithumb Chain客户端</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../rpc_api.html">RPC API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RPC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-gettransaction">Bithumbchain.GetTransaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-getblock">Bithumbchain.GetBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-getheader">Bithumbchain.GetHeader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-getblockhash">Bithumbchain.GetBlockHash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-getcurrentblockheight">Bithumbchain.GetCurrentBlockHeight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-getcurrentblockhash">Bithumbchain.GetCurrentBlockHash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-geteventlog">Bithumbchain.GetEventLog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-getrangeeventlog">Bithumbchain.GetRangeEventLog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-sendrawtx">Bithumbchain.SendRawTx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-contractcall">Bithumbchain.ContractCall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-balanceof">Bithumbchain.BalanceOf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-allowanceof">Bithumbchain.AllowanceOf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-getcontract">Bithumbchain.GetContract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bithumbchain-getresourcelimit">Bithumbchain.GetResourceLimit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Websocket.html">Websocket</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sdks.html">SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dwallet.html">钱包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explorer.html">区块链浏览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dex.html">Bithumb DEX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exchange.html">交易所对接文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../error.html">错误代码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../questions.html">常见问题</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bithumb Chain 文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../rpc_api.html">RPC API</a> &raquo;</li>
+        
+      <li>RPC</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/apis/RPC.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rpc">
+<span id="rpc"></span><h1>RPC<a class="headerlink" href="#rpc" title="Permalink to this headline">¶</a></h1>
+<p>具体用法可以浏览 <a class="reference external" href="https://documenter.getpostman.com/view/7127222/SVYkvg4t?version=latest#intro">Bithumb Chain RPC Introduction</a> 。</p>
+<div class="section" id="bithumbchain-gettransaction">
+<span id="bithumbchain-gettransaction"></span><h2>Bithumbchain.GetTransaction<a class="headerlink" href="#bithumbchain-gettransaction" title="Permalink to this headline">¶</a></h2>
+<p>交易信息查询。根据提供的hash值返回交易信息和所在区块高度</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code> HexString - 交易的Hash值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;|&quot;1&quot;</span></code> String - <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>返回Json格式数据，<code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>返回Raw数据</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;params&quot;: [&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;,&quot;0&quot;]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol>
+<li><p><code class="docutils literal notranslate"><span class="pre">Height</span></code> Number - 区块高度</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tx_type</span></code> Number - 交易类型（0:Invoke/1:Deploy）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> Number - 交易版本ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nonce</span></code> Number - nonce</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payload</span></code> Object - 交易详细内容</p>
+<p>5.1 <code class="docutils literal notranslate"><span class="pre">contract_account</span></code> String - 交易所调用的合约账户</p>
+<p>5.2 <code class="docutils literal notranslate"><span class="pre">method</span></code> String - 交易所调用的合约方法</p>
+<p>5.3 <code class="docutils literal notranslate"><span class="pre">args</span></code> Encode String - 调用合约方法所传入的参数（encode）</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attributes</span></code> Array - 交易附属信息</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payer</span></code> String - 该交易的网络/存储支付者</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sig</span></code> Object - 交易签名信息</p>
+<p>8.1 <code class="docutils literal notranslate"><span class="pre">public_keys</span></code>  Array[HexString] - 交易的发起者/payer的公钥地址</p>
+<p>8.2 <code class="docutils literal notranslate"><span class="pre">m</span></code> Number - 多签生效的阈值</p>
+<p>8.3 <code class="docutils literal notranslate"><span class="pre">sig_data</span></code>  Array[HexString] - 公钥对应的签名</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code>   HexString - 交易的hash值</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Height&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+        <span class="nt">&quot;Tx&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;tx_type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;nonce&quot;</span><span class="p">:</span> <span class="mi">16955790161879403521</span><span class="p">,</span>
+            <span class="nt">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;contract_account&quot;</span><span class="p">:</span> <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;transfer&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="s2">&quot;0c010d030a0127178e5d8c56480007761454953b1ce93f134d280a01d5898e85b770073769984f7b2aa17865c60e9dd1060a&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&quot;payer&quot;</span><span class="p">:</span> <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sig&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;public_keys&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;0103776933b620272510599da0dd3c817a68f7b5e01eb5adb989f6fe1346b0235218&quot;</span>
+                    <span class="p">],</span>
+                    <span class="nt">&quot;m&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="nt">&quot;sig_data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;018bea1bcd11ed29ef203259681434a40aeeb51014c8ab43a04da019751d7170134229842dd2638a073396dfebbc96097d13c3ad56415e270b869fa550f3164237&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example For RAW</strong>
+<code class="docutils literal notranslate"><span class="pre">&quot;params&quot;:</span> <span class="pre">[&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;,&quot;1&quot;]</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;2b000088eb4f11510ce28c01010000000000000000000000000000000000000001087472616e73666572320c010d030a0127178e5d8c56480007761454953b1ce93f134d280a01d5898e85b770073769984f7b2aa17865c60e9dd1060a0027178e5d8c56480007761454953b1ce93f134d2801010103776933b620272510599da0dd3c817a68f7b5e01eb5adb989f6fe1346b0235218010141018bea1bcd11ed29ef203259681434a40aeeb51014c8ab43a04da019751d7170134229842dd2638a073396dfebbc96097d13c3ad56415e270b869fa550f3164237&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-getblock">
+<span id="bithumbchain-getblock"></span><h2>Bithumbchain.GetBlock<a class="headerlink" href="#bithumbchain-getblock" title="Permalink to this headline">¶</a></h2>
+<p>区块信息查询。根据提供的区块hash值或者高度值返回区块信息</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code> HexString | String - 区块的hash值（hex string）或者高度（Number-&gt;String）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;|&quot;1&quot;</span></code> String - <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>返回Json格式数据，<code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>返回Raw数据</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;43&quot;,&quot;0&quot;]
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;7a3d220d4f8c922b7a7c4e10e6dee6ca77f72447a14464826e5b72becdf09b97&quot;,&quot;0&quot;]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol>
+<li><p><code class="docutils literal notranslate"><span class="pre">Header</span></code> Object - 区块头</p>
+<p>1.1. <code class="docutils literal notranslate"><span class="pre">version</span></code> Number - 区块版本ID</p>
+<p>1.2. <code class="docutils literal notranslate"><span class="pre">prev_block_hash</span></code> HexString - 前一区块的hash值</p>
+<p>1.3. <code class="docutils literal notranslate"><span class="pre">prev_proposal_block_hash</span></code> HexString - 前一提案区块的hash值</p>
+<p>1.4. <code class="docutils literal notranslate"><span class="pre">transaction_root</span></code> HexString - 当前区块内所有交易的hash值</p>
+<p>1.5. <code class="docutils literal notranslate"><span class="pre">block_root</span></code> HexString - 区块根</p>
+<p>1.6. <code class="docutils literal notranslate"><span class="pre">incr_state_root</span></code> HexString - 区块状态hash</p>
+<p>1.7. <code class="docutils literal notranslate"><span class="pre">state_root</span></code> HexString - 区块状态根hash</p>
+<p>1.8. <code class="docutils literal notranslate"><span class="pre">nonce</span></code> Number - 当前区块的随机数</p>
+<p>1.9. <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> Number - unix timestamp</p>
+<p>1.10. <code class="docutils literal notranslate"><span class="pre">consensus_no</span></code> Number - 共识序号</p>
+<p>1.11. <code class="docutils literal notranslate"><span class="pre">consensus_index</span></code> Number - 当前区块在当前共识批次中的索引序号</p>
+<p>1.12. <code class="docutils literal notranslate"><span class="pre">consensus_num</span></code> Number - 共识共识批次中的区块数量</p>
+<p>1.13. <code class="docutils literal notranslate"><span class="pre">height</span></code> Number - 该区块所在高度</p>
+<p>1.14. <code class="docutils literal notranslate"><span class="pre">vrf_value</span></code> HexString - VRF值</p>
+<p>1.15. <code class="docutils literal notranslate"><span class="pre">vrf_proof</span></code> HexString - VRF证明</p>
+<p>1.16. <code class="docutils literal notranslate"><span class="pre">next_bookkeeper</span></code> String - vrf计算出的下一个出块者，base58显示</p>
+<p>1.17. <code class="docutils literal notranslate"><span class="pre">bookkeepers</span></code> Array[hexString] - 该区块验证者的公钥</p>
+<p>1.18. <code class="docutils literal notranslate"><span class="pre">sig_data</span></code> Array[hexString] - 该区块验证者的签名列表</p>
+<p>1.19. <code class="docutils literal notranslate"><span class="pre">hash</span></code> HexString - 该区块的Hash值</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TxList</span></code> Array[交易] - 该区块内打包的交易列表，详细内容参考<code class="docutils literal notranslate"><span class="pre">Bithumbchain.GetTransaction</span></code></p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Header&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;prev_block_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;ba9cdc5704171b299cfd3a6ea0da14cea1ec4ef71604861ce3b5e599c9776e12&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;prev_proposal_block_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;transaction_root&quot;</span><span class="p">:</span> <span class="s2">&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;block_root&quot;</span><span class="p">:</span> <span class="s2">&quot;d12f32c42e47c3e77d902453ecaa493add7a441d9172b843f0e4b61ad0878138&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;incr_state_root&quot;</span><span class="p">:</span> <span class="s2">&quot;7fa64f3434c8ca63260188b6bb4f5a3a5e08427b3556a03187c88da313562bde&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;state_root&quot;</span><span class="p">:</span> <span class="s2">&quot;4245491c402cde1b256c475ebba39d31eefe2acae089f8844528783731fb8247&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;nonce&quot;</span><span class="p">:</span> <span class="mi">8946061438353727430</span><span class="p">,</span>
+            <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1565061435</span><span class="p">,</span>
+            <span class="nt">&quot;consensus_no&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+            <span class="nt">&quot;consensus_index&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;consensus_num&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+            <span class="nt">&quot;vrf_value&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;vrf_proof&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;next_bookkeeper&quot;</span><span class="p">:</span> <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;bookkeepers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;0103776933b620272510599da0dd3c817a68f7b5e01eb5adb989f6fe1346b0235218&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;sig_data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;0133ac97e5fa348d49dc9f551a85e3cf5130f03290d8e348981bcba0fa71280e3c0db23e5116a7d9b35f14f8218c4704d728b4acfdd63887468fcbbbe5b234d87c&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;7a3d220d4f8c922b7a7c4e10e6dee6ca77f72447a14464826e5b72becdf09b97&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;TxList&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;tx_type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;nonce&quot;</span><span class="p">:</span> <span class="mi">16955790161879403521</span><span class="p">,</span>
+                <span class="nt">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;contract_account&quot;</span><span class="p">:</span> <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;transfer&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="s2">&quot;0c010d030a0127178e5d8c56480007761454953b1ce93f134d280a01d5898e85b770073769984f7b2aa17865c60e9dd1060a&quot;</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="nt">&quot;payer&quot;</span><span class="p">:</span> <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;sig&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nt">&quot;public_keys&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="s2">&quot;0103776933b620272510599da0dd3c817a68f7b5e01eb5adb989f6fe1346b0235218&quot;</span>
+                        <span class="p">],</span>
+                        <span class="nt">&quot;m&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="nt">&quot;sig_data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="s2">&quot;018bea1bcd11ed29ef203259681434a40aeeb51014c8ab43a04da019751d7170134229842dd2638a073396dfebbc96097d13c3ad56415e270b869fa550f3164237&quot;</span>
+                        <span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-getheader">
+<span id="bithumbchain-getheader"></span><h2>Bithumbchain.GetHeader<a class="headerlink" href="#bithumbchain-getheader" title="Permalink to this headline">¶</a></h2>
+<p>区块头部信息查询。根据提供的区块hash值或者高度值返回区块头部信息</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code> HexString | String - 区块的hash值（hex string）或者高度（Number-&gt;String）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;|&quot;1&quot;</span></code> String - <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>返回Json格式数据，<code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>返回Raw数据</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;43&quot;,&quot;0&quot;]
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;7a3d220d4f8c922b7a7c4e10e6dee6ca77f72447a14464826e5b72becdf09b97&quot;,&quot;0&quot;]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p>区块头部信息参考<code class="docutils literal notranslate"><span class="pre">Bithumbchain.GetBlock</span></code>的返回值中的Header</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;prev_block_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;ba9cdc5704171b299cfd3a6ea0da14cea1ec4ef71604861ce3b5e599c9776e12&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;prev_proposal_block_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;transaction_root&quot;</span><span class="p">:</span> <span class="s2">&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;block_root&quot;</span><span class="p">:</span> <span class="s2">&quot;d12f32c42e47c3e77d902453ecaa493add7a441d9172b843f0e4b61ad0878138&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;incr_state_root&quot;</span><span class="p">:</span> <span class="s2">&quot;7fa64f3434c8ca63260188b6bb4f5a3a5e08427b3556a03187c88da313562bde&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;state_root&quot;</span><span class="p">:</span> <span class="s2">&quot;4245491c402cde1b256c475ebba39d31eefe2acae089f8844528783731fb8247&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;nonce&quot;</span><span class="p">:</span> <span class="mi">8946061438353727430</span><span class="p">,</span>
+        <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1565061435</span><span class="p">,</span>
+        <span class="nt">&quot;consensus_no&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+        <span class="nt">&quot;consensus_index&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;consensus_num&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+        <span class="nt">&quot;vrf_value&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;vrf_proof&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;next_bookkeeper&quot;</span><span class="p">:</span> <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;bookkeepers&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;0103776933b620272510599da0dd3c817a68f7b5e01eb5adb989f6fe1346b0235218&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;sig_data&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;0133ac97e5fa348d49dc9f551a85e3cf5130f03290d8e348981bcba0fa71280e3c0db23e5116a7d9b35f14f8218c4704d728b4acfdd63887468fcbbbe5b234d87c&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;7a3d220d4f8c922b7a7c4e10e6dee6ca77f72447a14464826e5b72becdf09b97&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-getblockhash">
+<span id="bithumbchain-getblockhash"></span><h2>Bithumbchain.GetBlockHash<a class="headerlink" href="#bithumbchain-getblockhash" title="Permalink to this headline">¶</a></h2>
+<p>根据区块高度查询区块hash</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code> Number - 区块的高度值</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [43]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p>HexString - 该区块的hash值</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;7a3d220d4f8c922b7a7c4e10e6dee6ca77f72447a14464826e5b72becdf09b97&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-getcurrentblockheight">
+<span id="bithumbchain-getcurrentblockheight"></span><h2>Bithumbchain.GetCurrentBlockHeight<a class="headerlink" href="#bithumbchain-getcurrentblockheight" title="Permalink to this headline">¶</a></h2>
+<p>查询系统当前最新区块高度</p>
+<p><strong>Parameters</strong>
+none</p>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: []
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p>Number - 系统当前区块高度</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="mi">1144</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-getcurrentblockhash">
+<span id="bithumbchain-getcurrentblockhash"></span><h2>Bithumbchain.GetCurrentBlockHash<a class="headerlink" href="#bithumbchain-getcurrentblockhash" title="Permalink to this headline">¶</a></h2>
+<p>查询系统当前最新区块的hash</p>
+<p><strong>Parameters</strong>
+none</p>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: []
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p>HexString - 系统当前区块hash</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;057efcb5d239a3a761be72d8cb8019118b53206658c77da2c5d7207f7a7bccbb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-geteventlog">
+<span id="bithumbchain-geteventlog"></span><h2>Bithumbchain.GetEventLog<a class="headerlink" href="#bithumbchain-geteventlog" title="Permalink to this headline">¶</a></h2>
+<p>根据交易hash值或者区块高度查询对应的EventLog</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DATA</span></code> HexString | String - 交易的Hash值或者区块的高度（Number-&gt;String）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;|&quot;1&quot;</span></code> String - <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>返回Json格式数据，<code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>返回Raw数据</p></li>
+</ol>
+<p><strong>Example For Tx</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;,&quot;0&quot;]
+</pre></div>
+</div>
+<p><strong>Returns For Tx</strong></p>
+<ol>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code> Number - 该交易所在区块的高度</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tx_hash</span></code> HexString - 该交易的hash值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error_code</span></code> Number - 该交易执行的错误码</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">net_usage</span></code> Number - 该交易执行所花费的NET(bytes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpu_usage</span></code> Number - 该交易执行所花费的CPU(微秒)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ram_usage</span></code> Object</p>
+<p>6.1 <code class="docutils literal notranslate"><span class="pre">address</span></code> String - 该交易的RAM提供者(base58)</p>
+<p>6.2 <code class="docutils literal notranslate"><span class="pre">ram_usage</span></code> String - 该交易执行所花费的RAM</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">event_logs</span></code> Array[event]</p>
+<p>7.1 <code class="docutils literal notranslate"><span class="pre">contract</span></code> String - 该交易所调用的合约地址</p>
+<p>7.2 <code class="docutils literal notranslate"><span class="pre">data</span></code> Array[String] - 该交易执行返回的event数据，默认第一个参数为调用合约的方法名称</p>
+</li>
+</ol>
+<p><strong>Example For Tx</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+        <span class="nt">&quot;tx_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;net_usage&quot;</span><span class="p">:</span> <span class="mi">217</span><span class="p">,</span>
+        <span class="nt">&quot;cpu_usage&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+        <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;account&quot;</span><span class="p">:</span> <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="s2">&quot;41&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;event_logs&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;contract&quot;</span><span class="p">:</span> <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;transfer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Xv9vYirEPVTDrd1L5YtBSuRR5TeMmruAzr&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;10&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example For Block</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;43&quot;,&quot;0&quot;]
+</pre></div>
+</div>
+<p><strong>Returns For Block</strong></p>
+<ol class="simple">
+<li><p>Array[tx event] - 该区块内所有交易的eventlog，详细内容参考交易的EventLog</p></li>
+</ol>
+<p><strong>Example For Block</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+            <span class="nt">&quot;tx_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;953e5d30edbe7ab65b5e6cd38b01fe8a460bbd8ecf961a1ded917ed58f493bca&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;net_usage&quot;</span><span class="p">:</span> <span class="mi">217</span><span class="p">,</span>
+            <span class="nt">&quot;cpu_usage&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+            <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;account&quot;</span><span class="p">:</span> <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="s2">&quot;41&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;event_logs&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;contract&quot;</span><span class="p">:</span> <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;transfer&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Xv9vYirEPVTDrd1L5YtBSuRR5TeMmruAzr&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;10&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-getrangeeventlog">
+<span id="bithumbchain-getrangeeventlog"></span><h2>Bithumbchain.GetRangeEventLog<a class="headerlink" href="#bithumbchain-getrangeeventlog" title="Permalink to this headline">¶</a></h2>
+<p>查询一定区块范围内的EventLog</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">startHeight</span></code> String - 查询起始区块（Number-&gt;String）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">endHeight</span></code> String - 查询结束区块（Number-&gt;String）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contractAddress</span></code> String - 指定合约地址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> String - 指定合约方法</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;|&quot;1&quot;</span></code> String - <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>返回Json格式数据，<code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>返回Raw数据</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;1&quot;,&quot;100&quot;,&quot;0000000000000000000000000000000000000001&quot;,&quot;transfer&quot;]
+    //查询区块1到100内，所有Bithumb的transfer交易的event log
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Array[Tx</span> <span class="pre">Event]</span></code> Array - 返回范围内符合条件的交易Event Log，详细参照<code class="docutils literal notranslate"><span class="pre">GetEventLog</span></code>中查询TX</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
+            <span class="nt">&quot;tx_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;aec1c2d9d9245f6367e7ec283aa9f143ca4ef8db3bc0ebc2d07bc39ea6cf2773&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;net_usage&quot;</span><span class="p">:</span> <span class="mi">449</span><span class="p">,</span>
+            <span class="nt">&quot;cpu_usage&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+            <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;XiiouyaZ1vDVckJUCBfTAeVPitaTvb31cz&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="s2">&quot;47&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;event_logs&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;contract&quot;</span><span class="p">:</span> <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;transfer&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;XiiouyaZ1vDVckJUCBfTAeVPitaTvb31cz&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLai8awY64&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;10000000000&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span>
+            <span class="nt">&quot;tx_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;f8fc7ee06fc02bf2ee473af137bbec6ec04bc39b2955f0a4a3af26ae35377179&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;net_usage&quot;</span><span class="p">:</span> <span class="mi">460</span><span class="p">,</span>
+            <span class="nt">&quot;cpu_usage&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+            <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;XiiouyaZ1vDVckJUCBfTAeVPitaTvb31cz&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="s2">&quot;149&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;event_logs&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;contract&quot;</span><span class="p">:</span> <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;transfer&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;XiiouyaZ1vDVckJUCBfTAeVPitaTvb31cz&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLahuf6AQq&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;20000000000&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span>
+            <span class="nt">&quot;tx_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;83f31c60424cd2b3a135eb719d9a061f89db3aeffcb2efec6d281f430111729b&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;net_usage&quot;</span><span class="p">:</span> <span class="mi">455</span><span class="p">,</span>
+            <span class="nt">&quot;cpu_usage&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+            <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;XiiouyaZ1vDVckJUCBfTAeVPitaTvb31cz&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="s2">&quot;48&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;event_logs&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;contract&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;transfer&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;XiiouyaZ1vDVckJUCBfTAeVPitaTvb31cz&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Xv6HVMLy5fScUED9mBiiUxBDtovtct2nXA&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;10000000000000000&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-sendrawtx">
+<span id="bithumbchain-sendrawtx"></span><h2>Bithumbchain.SendRawTx<a class="headerlink" href="#bithumbchain-sendrawtx" title="Permalink to this headline">¶</a></h2>
+<p>发送交易</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Data</span></code> HexString - Encode后的交易</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;|&quot;1&quot;</span></code> String - <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>（默认）发送交易，<code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>预执行交易</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;0000886f03410293850a080000000000000000000000000000000000000001087472616e73666572300c010d030a27178e5d8c56480007761454953b1ce93f134d280ad5898e85b770073769984f7b2aa17865c60e9dd1060a0027178e5d8c56480007761454953b1ce93f134d2801010103776933b620272510599da0dd3c817a68f7b5e01eb5adb989f6fe1346b0235218010141017e704c14e1b0ee6f55ed5644d75c6f867956ea6e99fdb4a8f22683bcbf1f076171c15a85f2dc00831e6322c7f98c5865b216f5b13523836decb923e9cf3fbd52&quot;]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> HexString - 该交易的hash值</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;34f12a49e730e939ca9d545e88a837ab0d2279d2d5d643bd26939470e7531542&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Returns For 预执行</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Data</span></code> TxEvent - 该交易的预执行结果，详细参考<code class="docutils literal notranslate"><span class="pre">GetEventLog</span></code></p></li>
+</ol>
+<p><strong>Example For 预执行</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;evt_log&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">12365</span><span class="p">,</span>
+            <span class="nt">&quot;tx_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;34f12a49e730e939ca9d545e88a837ab0d2279d2d5d643bd26939470e7531542&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;net_usage&quot;</span><span class="p">:</span> <span class="mi">214</span><span class="p">,</span>
+            <span class="nt">&quot;cpu_usage&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+            <span class="nt">&quot;ram_usage&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&quot;event_logs&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;contract&quot;</span><span class="p">:</span> <span class="s2">&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s2">&quot;transfer&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Xv9vYirEPVTDrd1L5YtBSuRR5TeMmruAzr&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;10&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-contractcall">
+<span id="bithumbchain-contractcall"></span><h2>Bithumbchain.ContractCall<a class="headerlink" href="#bithumbchain-contractcall" title="Permalink to this headline">¶</a></h2>
+<p>本地账本查询</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Data</span></code> HexString - Encode后的查询交易</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;00008823faa9e646fc054100000000000000000000000000000000000000010962616c616e63654f66150a27178e5d8c56480007761454953b1ce93f134d2800000000000000000000000000000000000000000000&quot;]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> HexString - 查询结果（根据ABI定义结构，encode后的数据）</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;0687038d63c5bf5f99&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-balanceof">
+<span id="bithumbchain-balanceof"></span><h2>Bithumbchain.BalanceOf<a class="headerlink" href="#bithumbchain-balanceof" title="Permalink to this headline">¶</a></h2>
+<p>查询账户余额</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ContractAddress</span></code> HexString - 合约地址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Address</span></code> Base58 - 账户地址</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;,&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> Number - 账户余额</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="mi">999884589064089</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-allowanceof">
+<span id="bithumbchain-allowanceof"></span><h2>Bithumbchain.AllowanceOf<a class="headerlink" href="#bithumbchain-allowanceof" title="Permalink to this headline">¶</a></h2>
+<p>查询两个账户之间的授权额度</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ContractAddress</span></code> HexString - 合约地址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Address</span></code> Base58 - 授权地址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Address</span></code> Base58 - 被授权地址</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;,&quot;XeFYQScWSznQGMv9i9QL1ukMnLeEe11Bdw&quot;,&quot;Xv9vYirEPVTDrd1L5YtBSuRR5TeMmruAzr&quot;]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> Number - 授权余额</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-getcontract">
+<span id="bithumbchain-getcontract"></span><h2>Bithumbchain.GetContract<a class="headerlink" href="#bithumbchain-getcontract" title="Permalink to this headline">¶</a></h2>
+<p>查询合约信息</p>
+<p><strong>Parameters</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ContractAddress</span></code> HexString - 合约地址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;0&quot;|&quot;1&quot;</span></code> String - <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>(默认)返回Json格式数据，<code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>返回Raw数据</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: [&quot;XagqqFetxiDb9wbartKDrXgnqLah9fKoTx&quot;,&quot;0&quot;]
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code> HexString - 合约地址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> String - 合约名称</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">author</span></code> String - 作者</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> String - 版本</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code> String - 邮箱地址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code> String - 描述</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> String - 合约类型(native/wasm)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tx_hash</span></code> HexString - 该合约发布时的TXID</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000000000000000000000000000001&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bithumb&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Bithumb&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Bithumb governance token&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;native&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tx_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bithumbchain-getresourcelimit">
+<span id="bithumbchain-getresourcelimit"></span><h2>Bithumbchain.GetResourceLimit<a class="headerlink" href="#bithumbchain-getresourcelimit" title="Permalink to this headline">¶</a></h2>
+<p>查询链上资源总量</p>
+<p><strong>Parameters</strong>
+none</p>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    &quot;params&quot;: []
+</pre></div>
+</div>
+<p><strong>Returns</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">VirtualNetLimit</span></code> Number - 最新区块Net总量</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VirtualCpuLimit</span></code> Number - 最新区块CPU总量</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;VirtualNetLimit&quot;</span><span class="p">:</span> <span class="mi">15190902</span><span class="p">,</span>
+        <span class="nt">&quot;VirtualCpuLimit&quot;</span><span class="p">:</span> <span class="mi">2897399</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;error&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Websocket.html" class="btn btn-neutral float-right" title="Websocket" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bithumb Chain
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
