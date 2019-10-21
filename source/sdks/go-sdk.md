@@ -4,8 +4,8 @@
 
 
 
-Go SDK介绍请点击 [Go SDK introduce](https://github.com/xtario/xtar-go-sdk/blob/master/docs/go-sdk.md)。
+Go SDK介绍请点击 [Go SDK introduce](https://github.com/bithumb-chain/bithumbchain-go-sdk/blob/master/docs/go-sdk.md)。
 
 
 
-API使用规范请点击 [API Usage Guide](https://github.com/xtario/xtar-go-sdk)。
+API使用规范请点击 [API Usage Guide](https://github.com/bithumb-chain/bithumbchain-go-sdk)。

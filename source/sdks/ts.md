@@ -4,4 +4,5 @@
 
 
 
-TS SDK介绍请点击 [TS SDK introduce](https://github.com/xtario/xtar-ts-sdk)。
+TS SDK介绍请点击 [TS SDK introduce](https://github.com/bithumb-chain/bithumbchain-ts-sdk)。
+

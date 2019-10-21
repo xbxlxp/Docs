@@ -4,5 +4,5 @@
 
 
 
-Python SDK介绍请点击 [Python SDK introduce](https://github.com/xtario/xtar-py-sdk)。
+Python SDK介绍请点击 [Python SDK introduce](https://github.com/bithumb-chain/bithumbchain-py-sdk)。
 

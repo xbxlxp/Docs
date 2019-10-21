@@ -51,7 +51,7 @@ Bithumb Chain希望降低协作的信任与经济成本，扩大价值导入、�
 ================
 快速开始
 ================
-想试试吗？推荐从以下链接快速开始 `快速开始 <http://10.0.151.70/cn/getstarted.html>`_ .
+想试试吗？推荐从以下链接快速开始 `快速开始 <../getstarted.html>`_ .
 
 ============================
 资产映射
@@ -60,9 +60,9 @@ Bithumb Chain希望降低协作的信任与经济成本，扩大价值导入、�
 
 此Token是一套统一的资产模型，包含资产的注册，发行，转移，销毁等功能，对于映射的资产，预留了资产从哪里来，到哪里去的描述性信息。
 
-- `一键资产映射功能介绍 <http://10.0.151.70/cn/functions/03token.html>`_
+- `一键资产映射功能介绍 <../functions/03token.html>`_
 
-- `一键资产映射CLI实现 <http://10.0.151.70/cn/commands/token.html>`_
+- `一键资产映射CLI实现 <../commands/token.html>`_
 
 ============================
 平台通证：BT (Bithumb Token)
@@ -74,16 +74,16 @@ EaaS (Exchange-as-a-Service，交易即服务)
 ===============================================
 Bithumb Chain的PSP交易协议(Profit Sharing Protocol)提供了交易撮合、交易清结算、维护等后台功能，并只收取0.03%的服务费用。此外，我们还为使用该交易协议的用户（我们将其称之为“渠道”，如下同）提供了一键使用的服务EaaS(Exchange-as-a-Service，交易即服务)，渠道只需在PSP交易协议中设置好相关参数（如收费标准、收费账号、支持的交易对等），即可完成自己的应用部署。由于PSP交易协议本身已经过可靠的安全审计，渠道完全⽆需担心技术和安全审计问题，这让渠道不管是开交易所或运营与交易相关的应用都变得更容易，成本更低。
 
-如需了解更多请浏览 `Bithumb DEX <http://10.0.151.70/cn/dex.html>`_ 。
+如需了解更多请浏览 `Bithumb DEX <../dex.html>`_ 。
 
 ====================
 技术细节
 ====================
-`Bithumb Chain介绍 <http://10.0.151.70/cn/chain.html>`_: 关于共识OBFT、资源模型与Defi应用、基于公钥的权限体系、价值网络域名体系(VDNS)、网络沉降、用户裂变、非许可性交易协议等.
+`Bithumb Chain介绍 <../chain.html>`_: 关于共识OBFT、资源模型与Defi应用、基于公钥的权限体系、价值网络域名体系(VDNS)、网络沉降、用户裂变、非许可性交易协议等.
 
-`Bithumb Chain功能 <http://10.0.151.70/cn/function.html>`_: 关于合约的功能函数及具体参数说明等.
+`Bithumb Chain功能 <../function.html>`_: 关于合约的功能函数及具体参数说明等.
 
-`连接到Bithumb Chain <http://10.0.151.70/cn/commands/getting_started.html>`_: 通过多重方式链接到Bithumb Chain.
+`连接到Bithumb Chain <../commands/getting_started.html>`_: 通过多重方式链接到Bithumb Chain.
 
 `一键开交易所 <http://doc.lyra.site/>`_：基于简单的交易协议可以设置规则如交易费率、上币方式等，从而实现一键开设交易所，且支持平行交易所之间共享交易深度.
 
