@@ -25,7 +25,7 @@ Node RPC
 =====================================
 Bithumb Chain节点的 RPC 接口、WebSocket 接口遵循着一套公开的接口规范。
 
-* :doc:`http_api`
+* :doc:`rpc_api`
 
 ================================
 使用Bithumb Chain的一些方法

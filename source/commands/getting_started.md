@@ -1,4 +1,4 @@
-# 快速开始
+# CLI快速开始
 
 ## 概述
 
@@ -67,7 +67,7 @@ Bithumb Chain价值网络客户端 `bithumbchain-cli` 是一个用 `Go` 语言�
 
 ## 快速开始
 
-当你安装好Bithumb Chain的客户端后，便可以使用以下命令进行一些常用操作。
+当你安装好Bithumb Chain的客户端后，便可以使用以下命令连接到Bithumb Chian并进行一些常用操作。
 
 **查看帮助信息**
 
