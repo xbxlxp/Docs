@@ -6,7 +6,7 @@ Bithumb Chain介绍
 白皮书
 ============
 
-- `中文白皮书 <http://10.0.151.70/en/index.html>`_
+- `中文白皮书 <../latest/index.html>`_
 
 ============
 OBFT共识
