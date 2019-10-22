@@ -7,7 +7,7 @@
 - 同步节点在网络中参与区块同步。
 - 图书馆节点保存系统最全的交易以及区块信息，不会做区块裁剪，并开放给外部查询。
 
-## [部署共识节点](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/09-deploy-node?id=部署共识节点)
+## 部署共识节点
 
 默认情况下，客户端 `Bithumb Chain CLI` 不会启动共识模块，需要通过 `--consensus` 选项来开启共识。
 
@@ -69,7 +69,7 @@ xtar-cli  --ws-port <port>
 xtar-cli --consensus
 ```
 
-## [部署同步节点](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/09-deploy-node?id=部署同步节点)
+## 部署同步节点
 
 使用以下命令启动同步节点。
 
@@ -101,7 +101,7 @@ xtar-cli --consensus
 
 在测试模式下，共识模块、RPC 模块、Restful 模块以及 WebSocket 模块会同时开启。
 
-## [常见问题](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/09-deploy-node?id=常见问题)
+## 常见问题
 
 - 如何为节点指定创世区块？
 

@@ -3,9 +3,9 @@
 
 
 
-Java SDK介绍请点击 [Java SDK introduce](https://github.com/xtario/xtar-java-sdk)。
+Java SDK介绍请点击 [Java SDK introduce](https://github.com/bithumb-network/bithumb-chain-java-sdk)。
 
 
 
-API使用规范请点击 [API Usage Guide](https://github.com/xtario/xtar-java-sdk/blob/master/API.md)。
+API使用规范请点击 [API Usage Guide](https://github.com/bithumb-network/bithumb-chain-java-sdk/blob/master/API.md)。
 

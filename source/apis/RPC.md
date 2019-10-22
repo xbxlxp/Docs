@@ -3,7 +3,7 @@ RPC
 
 具体用法可以浏览 [Bithumb Chain RPC Introduction](https://documenter.getpostman.com/view/7127222/SVYkvg4t?version=latest#intro) 。
 
-## Bithumbchain.GetTransaction
+## bithumbchain.GetTransaction
 
 交易信息查询。根据提供的hash值返回交易信息和所在区块高度
 
@@ -105,7 +105,7 @@ RPC
 }
 ```
 
-## Bithumbchain.GetBlock
+## bithumbchain.GetBlock
 
 区块信息查询。根据提供的区块hash值或者高度值返回区块信息
 
@@ -166,7 +166,7 @@ RPC
 
    1.19. `hash` HexString - 该区块的Hash值
 
-2. `TxList` Array[交易] - 该区块内打包的交易列表，详细内容参考`Bithumbchain.GetTransaction`
+2. `TxList` Array[交易] - 该区块内打包的交易列表，详细内容参考`bithumbchain.GetTransaction`
 
 **Example**
 
@@ -234,7 +234,7 @@ RPC
 }
 ```
 
-## Bithumbchain.GetHeader
+## bithumbchain.GetHeader
 
 区块头部信息查询。根据提供的区块hash值或者高度值返回区块头部信息
 
@@ -255,7 +255,7 @@ RPC
 
 **Returns**
 
-1. 区块头部信息参考`Bithumbchain.GetBlock`的返回值中的Header
+1. 区块头部信息参考`bithumbchain.GetBlock`的返回值中的Header
 
 **Example**
 
@@ -295,7 +295,7 @@ RPC
 }
 ```
 
-## Bithumbchain.GetBlockHash
+## bithumbchain.GetBlockHash
 
 根据区块高度查询区块hash
 
@@ -327,7 +327,7 @@ RPC
 }
 ```
 
-## Bithumbchain.GetCurrentBlockHeight
+## bithumbchain.GetCurrentBlockHeight
 
 查询系统当前最新区块高度
 
@@ -358,7 +358,7 @@ none
 }
 ```
 
-## Bithumbchain.GetCurrentBlockHash
+## bithumbchain.GetCurrentBlockHash
 
 查询系统当前最新区块的hash
 
@@ -389,7 +389,7 @@ none
 }
 ```
 
-## Bithumbchain.GetEventLog
+## bithumbchain.GetEventLog
 
 根据交易hash值或者区块高度查询对应的EventLog
 
@@ -514,7 +514,7 @@ none
 }
 ```
 
-## Bithumbchain.GetRangeEventLog
+## bithumbchain.GetRangeEventLog
 
 查询一定区块范围内的EventLog
 
@@ -624,7 +624,7 @@ none
 }
 ```
 
-## Bithumbchain.SendRawTx
+## bithumbchain.SendRawTx
 
 发送交易
 
@@ -696,7 +696,7 @@ none
 }
 ```
 
-## Bithumbchain.ContractCall
+## bithumbchain.ContractCall
 
 本地账本查询
 
@@ -728,7 +728,7 @@ none
 }
 ```
 
-## Bithumbchain.BalanceOf
+## bithumbchain.BalanceOf
 
 查询账户余额
 
@@ -761,7 +761,7 @@ none
 }
 ```
 
-## Bithumbchain.AllowanceOf
+## bithumbchain.AllowanceOf
 
 查询两个账户之间的授权额度
 
@@ -795,7 +795,7 @@ none
 }
 ```
 
-## Bithumbchain.GetContract
+## bithumbchain.GetContract
 
 查询合约信息
 
@@ -844,7 +844,7 @@ none
 }
 ```
 
-## Bithumbchain.GetResourceLimit
+## bithumbchain.GetResourceLimit
 
 查询链上资源总量
 

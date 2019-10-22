@@ -97,6 +97,6 @@ Bithumb Chain的PSP交易协议(Profit Sharing Protocol)提供了交易撮合、
 ======================
 社区贡献
 ======================
-如果希望参与到项目的开发，请到 `Bithumb Chain Github <https://github.com/bithumb-chain/BithumbChain>`_ 。
+如果希望参与到项目的开发，请到 `Bithumb Chain Github <https://github.com/bithumb-network/BithumbChain>`_ 。
 
-如果希望进入开发者社区，请点击 `Developer Group <https://github.com/bithumb-chain/BithumbChain>`_ 。
+如果希望进入开发者社区，请点击 `Developer Group <https://t.me/joinchat/LsaxPQx1jswbfEqLhjh2tg>`_ 。

@@ -4,7 +4,7 @@ Bithumb Chain客户端 `Bithumb Chain CLI` 提供了构造交易模块，用于�
 
 为了使所构造的交易有效，交易在发送到链上之前，需要使用钱包账户进行签名。
 
-## [转账](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=转账)
+## 转账
 
 在构造交易模块中，`transfer` 命令用于构造转账交易，注意加上`--print-tx, -t` 参数。
 
@@ -173,7 +173,7 @@ Transaction:638360e6d87bdbc42131e10d82ea32a09a344c1b7a8466ead67104293a6ebebe =>
 }
 ```
 
-## [查询交易](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=查询交易)
+## 查询交易
 
 Bithumb Chain客户端 `Bithumb Chain CLI` 提供了交易反序列化模块，用于将以十六进制字符串显示的序列化交易反序列化为 JSON 格式。可以在命令行中通过 `show` 命令使用。
 
@@ -199,7 +199,7 @@ No.1:=>
 }
 ```
 
-## [签名](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=签名)
+## 签名
 
 Bithumb Chain客户端 `Bithumb Chain CLI` 提供了交易签名模块，用于对以十六进制字符串显示的序列化交易进行签名。可以在命令行中通过 `sig` 命令使用。
 
@@ -243,7 +243,7 @@ EventLog =>
 }
 ```
 
-## [交易多签](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=交易多签)
+## 交易多签
 
 Bithumb Chain客户端 `Bithumb Chain CLI` 提供了多重签名模块，用于对以十六进制字符串显示的序列化交易进行签名。可以在命令行中通过 `multisig` 命令使用。
 
@@ -397,7 +397,7 @@ EventLog:=>
 }
 ```
 
-## [发送交易](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/16-build-tx?id=发送交易)
+## 发送交易
 
 Bithumb Chain客户端 `Bithumb Chain CLI` 提供了交易发送模块，用于将以十六进制字符串显示的序列化交易发送到所接入的网络。可以在命令行中通过 `send` 命令使用。
 

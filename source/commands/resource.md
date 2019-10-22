@@ -13,7 +13,7 @@ Bithumb Chain客户端 `bithumbchain-cli` 提供了资源管理模块，可以�
 xtar-cli resource help
 ```
 
-## [抵押获取带宽/CPU](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=抵押获取资源)
+## 抵押获取带宽/CPU
 
 要获取带宽/CPU，可使用 `delegate` 命令来抵押 `BT` 获取。
 - `--delegator`：指定抵押者资产地址或索引。
@@ -81,7 +81,7 @@ EventLog:=>
 }
 ```
 
-## [抵押信息查询](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=抵押信息查询)
+## 抵押信息查询
 
 在资源管理模块中，`delegateInfo` 命令用于查询抵押信息。
 
@@ -106,7 +106,7 @@ DelegateInfo:=>
 }
 ```
 
-## [取消抵押](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=取消抵押)
+## 取消抵押
 
 要取消抵押，可使用 `undelegate` 命令来释放抵押的 `xtar` 。
 
@@ -168,7 +168,7 @@ DelegateInfo:=>
 }
 ```
 
-## [退回抵押](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=退回抵押)
+## 退回抵押
 
 取消抵押之后，一般系统默认3天之后可以提取抵押的 `xtar` ，`refund` 命令用于获取抵押的 `xtar`。
 
@@ -193,7 +193,7 @@ EventLog:=>
 }
 ```
 
-## [查询可用带宽](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=查询可用带宽)
+## 查询可用带宽
 
 抵押过程总就能产生可用的带宽，`getNet` 命令用于获取抵押产生的可用带宽。
 
@@ -209,7 +209,7 @@ Net:=>
 }
 ```
 
-## [查询可用CPU](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=查询可用CPU)
+## 查询可用CPU
 
 抵押过程中就能产生可用的CPU，`getCpu` 命令用于获取抵押产生的可用CPU。
 

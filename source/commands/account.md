@@ -35,13 +35,13 @@ MISC OPTIONS:
   --help, -h   show help
 ```
 
-## [签名算法](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=签名算法)
+## 签名算法
 
 Bithumb Chain客户端 Bithumbchain-CLI` 目前支持 `ECDSA` 签名算法。
 
 要了解更多关于ECDSA 密钥曲线的信息，可以访问 [NIST Digital Signature Standard (FIPS 186-3)](https://csrc.nist.gov/csrc/media/publications/fips/186/3/archive/2009-06-25/documents/fips_186-3.pdf)。
 
-## [创建账户](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=创建账户)
+## 创建账户
 
 要创建账户，使用 `new` 命令：
 
@@ -78,7 +78,7 @@ ACCOUNT OPTIONS:
 > - 同一个 `Keystore` 文件下，不能出现重复的账户标签。
 > - 未设置账户标签的账户为空字符串。
 
-## [查看账户](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=查看账户)
+## 查看账户
 
 要查看 `Keystore` 文件中的账户列表，使用 `list` 命令：
 
@@ -99,7 +99,7 @@ XTAR OPTIONS:
   --keystore <path>   Key store <path>. (default = inside the data dir)
 ```
 
-## [修改账户](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=修改账户)	
+## 修改账户	
 
 要对账户进行修改，使用`update` 命令：
 
@@ -127,7 +127,7 @@ ACCOUNT OPTIONS:
 > - 默认的钱包路径为 `.Database/keystore/*****.keystore`；
 > - 同一个 `Keystore` 文件中，不能有两个相同的钱包标签。
 
-## [导入账户](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=导入账户)
+## 导入账户
 
 在账户管理模块中，`import` 命令用于将 `Keystore` 文件导入到钱包账户之中。
 
@@ -137,7 +137,7 @@ xtar-cli wallet import --passwd
 
 请在导入完成后彻底清除设备中的 `keystore` 文件或将其置于安全的位置。
 
-## [常见问题](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=常见问题)
+## 常见问题
 
 - 什么是明文私钥？
 

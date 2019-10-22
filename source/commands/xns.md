@@ -8,7 +8,7 @@
 xtar-cli xns help
 ```
 
-## [域名注册](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=域名注册)
+## 域名注册
 
 要注册域名，可以使用 `vdns register`.
 
@@ -46,7 +46,7 @@ EventLog:=>
 }
 ```
 
-## [查询域名](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=查询域名)	
+## 查询域名	
 
 查询域名对应的地址、状态可以使用 `vdns addressInfo` :
 

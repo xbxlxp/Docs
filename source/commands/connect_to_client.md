@@ -4,7 +4,7 @@ Bithumb Chain客户端提供了大量的调用接口，你可以通过 RPC、 Re
 
 默认情况下，Restful 接口监听在 30088 端口，Websocket 接口监听在 43027 端口，RPC 接口监听在 43026 端口。
 
-## [基于客户端进行调用](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/03-connect-to-client?id=基于客户端进行调用)
+## 基于客户端进行调用
 
 Bithumb Chain客户端提供了大量调用命令，这些命令默认会向本地启动的节点按照 JSON-RPC 协议发送调用命令。
 
@@ -34,17 +34,17 @@ Bithumb Chain客户端提供了大量调用命令，这些命令默认会向本�
    ./bithumbchain-cli asset balance 1
    ```
 
-## [基于 SDK 进行调用](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/03-connect-to-client?id=基于-sdk-进行调用)
+## 基于 SDK 进行调用
 
 Bithumb Chain提供了众多 SDK 供开发者使用，你可以参考下表选择自己熟悉的语言，更多关于 SDK 的信息你可以点击[这里](http://10.0.151.70/cn/sdks/overview.html)访问文档中心的 SDK 部分。
 
-- [Github of Java SDK](https://github.com/xtario/xtar-java-sdk)
+- [Github of Java SDK](https://github.com/bithumb-network/bithumb-chain-java-sdk)
 
-- [Github of Typescript SDK](https://github.com/xtario/xtar-ts-sdk)
+- [Github of Typescript SDK](https://github.com/bithumb-network/bithumb-chain-ts-sdk)
 
-- [Github of Python SDK](https://github.com/xtario/xtar-py-sdk)
+- [Github of Python SDK](https://github.com/bithumb-network/bithumb-chain-py-sdk)
 
-- [Github of Golang SDK](https://github.com/xtario/xtar-go-sdk)
+- [Github of Golang SDK](https://github.com/bithumb-network/bithumb-chain-go-sdk)
 
   
 
@@ -52,21 +52,21 @@ Bithumb Chain提供了众多 SDK 供开发者使用，你可以参考下表选�
 
 关于函数库的更多信息可以在下列章节中找到：
 
-- [Java SDK](http://10.0.151.70/cn/sdks/java.html)
-- [TS SDK](http://10.0.151.70/cn/sdks/ts.html)
-- [Python SDK](http://10.0.151.70/cn/sdks/python.html)
-- [Go SDK](http://10.0.151.70/cn/sdks/go-sdk.html)
+- [Java SDK](https://bithumbchain.readthedocs.io/zh_CN/latest/sdks/java.html)
+- [TS SDK](https://bithumbchain.readthedocs.io/zh_CN/latest/sdks/ts.html)
+- [Python SDK](https://bithumbchain.readthedocs.io/zh_CN/latest/sdks/python.html)
+- [Go SDK](https://bithumbchain.readthedocs.io/zh_CN/latest/sdks/go-sdk.html)
 
-## [使用公开节点](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/03-connect-to-client?id=使用公开节点)
+## 使用公开节点
 
 通常情况下，开发者自己运行节点是极为不便的。因此，Bithumb Chain提供了 `testnet` 测试网节点以及主网节点供开发者使用，它们均支持 RPC、 Restful 以及 WebSockek 调用，并使用默认的端口号。
 
 - 测试网节点
-  - [http://xgalaxy1.bithumbchain.io](http://xgalaxy1.bithumbchain.io/)
-  - [http://xgalaxy2.bithumbchain.io](http://xgalaxy2.bithumbchain.io/)
+  - [http://xgalaxy1.bithumb.netwotk](http://xgalaxy1.bithumb.netwotk)
+  - [http://xgalaxy2.bithumb.netwotk](http://xgalaxy2.bithumb.netwotk)
 - 主网节点
-  - [http://dappnode1.bithumbchain.io](http://dappnode1.bithumbchain.io/)
-  - [http://dappnode2.bithumbchain.io](http://dappnode2.bithumbchain.io/)
+  - [http://dappnode1.bithumb.netwotk](http://dappnode1.bithumb.netwotk)
+  - [http://dappnode2.bithumb.netwotk](http://dappnode2.bithumb.netwotk)
 
 如果你希望基于 `testnet` 测试网进行开发，你可以在[这里](https://developer.bithumbchain.io/applyResource)申请测试所需的 `NET` 、 `CPU` 和 `RAM` 。
 

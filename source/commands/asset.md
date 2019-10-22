@@ -11,7 +11,7 @@ Bithumb Chain客户端 `xtar-CLI` 提供了资产管理模块，可以在命令�
 xtar-cli asset help
 ```
 
-## [账户余额](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=账户余额)
+## 账户余额
 
 要查询指定账户在所接入网络中的余额信息，使用`balance` 命令。
 
@@ -45,7 +45,7 @@ Token:004ed82971fabb900ec1d582380e0fe11daf83a9
 Balance:99990
 ```
 
-## [转账](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=转账)
+## 转账
 
 在资产管理模块中，`transfer` 命令用于构造转账交易，可以转移 `BT` 或其他 `token` ，其包含以下参数：
 
@@ -146,7 +146,7 @@ EventLog:=>
 }
 ```
 
-## [授权转账](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=授权转账)
+## 授权转账
 
 在资产管理模块中，`approve` 命令用于授权转账。
 
@@ -186,7 +186,7 @@ EventLog:=>
 }
 ```
 
-## [授权查询](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=授权查询)
+## 授权查询
 
 在资产管理模块中，`allowanceOf` 命令用于授权之后的转账查询。
 
@@ -198,7 +198,7 @@ To:AKVhDYofgsN9aoYKSev1uPMAW64NxYeRr9
 XTAR balance:20
 ```
 
-## [授权账户转账](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=授权账户转账)
+## 授权账户转账
 
 在资产管理模块中，`transferFrom` 命令用于构造授权账户转账交易。
 
@@ -241,7 +241,7 @@ Address:AQihuq7oRHfdTH4f3dfKApa357zM4UYmnn
 XTAR balance:999999960
 ```
 
-## [常见问题](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=常见问题)
+## 常见问题
 
 - 如何确认对账户资产的操作是否成功？
 

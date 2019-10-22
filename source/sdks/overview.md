@@ -4,13 +4,13 @@ Bithumb Chain软件开发工具包 ( SDK ) 封装了加密算法、RPC交互和�
 
 主要包括：
 
-- [Github of Java SDK](https://github.com/bithumb-chain/bithumbchain-java-sdk)
+- [Github of Java SDK](https://github.com/bithumb-network/bithumb-chain-java-sdk)
 
-- [Github of Typescript SDK](https://github.com/bithumb-chain/bithumbchain-ts-sdk)
+- [Github of Typescript SDK](https://github.com/bithumb-network/bithumb-chain-ts-sdk)
 
-- [Github of Python SDK](https://github.com/bithumb-chain/bithumbchain-py-sdk)
+- [Github of Python SDK](https://github.com/bithumb-network/bithumb-chain-py-sdk)
 
-- [Github of Golang SDK](https://github.com/bithumb-chain/bithumbchain-go-sdk)
+- [Github of Golang SDK](https://github.com/bithumb-network/bithumb-chain-go-sdk)
 
   
 

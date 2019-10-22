@@ -11,10 +11,10 @@
 主网浏览器域名
 ========================
 
-https://explorer.bithumbchain.io
+https://explorer.bithumb.network
 
 ========================
 测试网浏览器域名
 ========================
 
-https://xgalaxyexplorer.bithumbchain.io
+https://explorer.bithumb.network/testnet

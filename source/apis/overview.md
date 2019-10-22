@@ -12,20 +12,20 @@ xGalaxy 公开测试网第一个节点和主网第一个节点的 30088 端口�
 
 - 公开测试网节点
 
-http://xgalaxy1.bithumbchain.io
+http://xgalaxy1.bithumb.network
 
-http://xgalaxy2.bithumbchain.io
+http://xgalaxy2.bithumb.network
 
 - 主网节点
 
-http://dappnode1.bithumbchain.io
+http://dappnode1.bithumb.network
 
-http://dappnode2.bithumbchain.io
+http://dappnode2.bithumb.network
 
-如果你希望基于 xGalaxy 公开测试网进行开发，你可以在 [公开测试网BT申请](https://github.com/xtario/xtar) 申请测试所需的 BT。
+如果你希望基于 xGalaxy 公开测试网进行开发，你可以在 [公开测试网BT申请](https://developer.bithumb.network/applyBT) 申请测试所需的 BT。
 
 ## 部署个人节点
 
 根据开发者需要，我们也提供了搭建节点的方法。
 
-[节点部署](file:///Users/xbxlxp/Documents/Oneroot/03.Docs_cn/build/html/commands/running_node.html)
+[节点部署](https://github.com/bithumb-network/BithumbChain)

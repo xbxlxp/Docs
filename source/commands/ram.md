@@ -12,7 +12,7 @@ Bithumb Chain客户端 `bithumbchain-cli` 提供了RAM管理模块，可以在�
 xtar-cli ram help
 ```
 
-## [账户查询RAM](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=账户查询RAM)
+## 账户查询RAM
 
 要查询指定账户在所接入网络中的RAM信息，使用`balance` 命令。
 
@@ -41,7 +41,7 @@ Ram:=>
 }
 ```
 
-## [购买RAM](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=购买RAM)
+## 购买RAM
 
 在RAM管理模块中，`buy` 命令用于购买RAM交易，购买时需要使用 `BT`，其包含以下参数：
 
@@ -108,7 +108,7 @@ EventLog:=>
 }
 ```
 
-## [购买指定字节RAM](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=购买指定字节RAM)
+## 购买指定字节RAM
 
 ```shell
 $ xtar-cli ram buyBytes --ram-amount=10000 --buyer=0 --receiver=1 
@@ -159,7 +159,7 @@ EventLog:=>
 }
 ```
 
-## [出售RAM](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/12-asset?id=出售RAM)
+## 出售RAM
 
 在RAM管理模块中，`sell` 命令用于出售RAM。
 

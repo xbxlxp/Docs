@@ -4,5 +4,5 @@
 
 
 
-TS SDK介绍请点击 [TS SDK introduce](https://github.com/bithumb-chain/bithumbchain-ts-sdk)。
+TS SDK介绍请点击 [TS SDK introduce](https://github.com/bithumb-network/bithumb-chain-ts-sdk)。
 

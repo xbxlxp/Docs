@@ -13,7 +13,7 @@ Bithumb Chain客户端 `Bithumb Chain CLI` 提供了token管理模块，可以�
 xtar-cli token help
 ```
 
-## [token注册](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=注册)
+## Token注册
 
 要注册token，使用 `register` 命令：
 
@@ -75,7 +75,7 @@ xtar-cli token register --help
 | `--email`        | 指定 `token` 合约的联系信箱                         |
 | `--desc`         | 指定 `token` 合约的描述信息                         |
 
-## [token发行](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=发行)
+## Token发行
 
 `token` 注册之后可以根据需要发行token，使用 `issue` 选项即可：
 
@@ -142,7 +142,7 @@ xtar-cli token issue --help
 | `--address` | 指定 `token` 合约的地址                                     |
 | `--source`  | 指定 `token` 的发行者地址或销毁的transaction地址            |
 
-## [销毁token](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=销毁)
+## 销毁token
 
 如果要销毁发行账户的 `token` ，可以使用 `destroy` 命令来减少发行量：
 
@@ -196,7 +196,7 @@ Balance:=>
 5
 ```
 
-## [信息查询](https://dev-docs.xtar.io/#/docs-cn/xtar-cli/10-wallet-manager?id=信息查询)	
+## 信息查询	
 
 要对`token` 信息进行查询，使用 `info` 命令：
 

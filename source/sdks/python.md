@@ -4,5 +4,5 @@
 
 
 
-Python SDK介绍请点击 [Python SDK introduce](https://github.com/bithumb-chain/bithumbchain-py-sdk)。
+Python SDK介绍请点击 [Python SDK introduce](https://github.com/bithumb-network/bithumb-chain-go-sdk)。
 
