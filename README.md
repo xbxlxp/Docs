@@ -4,7 +4,7 @@
 
 This document contains information on how the Bithumb Chain documentation is built and published as well as a few conventions one should be aware of before making changes to the doc.
 
-The crux of the documentation is written in [reStructuredText](http://docutils.sourceforge.net/rst.html) which is converted to HTML using [Sphinx](http://www.sphinx-doc.org/en/stable/). The HTML is then published on [http://bithumbchain.readthedocs.io](http://bithumbchain.readthedocs.io/) which has a hook so that any new content that goes into `docs/source` on the main repository will trigger a new build and publication of the doc.
+The crux of the documentation is written in [reStructuredText](http://docutils.sourceforge.net/rst.html) which is converted to HTML using [Sphinx](http://www.sphinx-doc.org/en/stable/). The HTML is then published on [http://bithumbchain.readthedocs.io](https://bithumbchain.readthedocs.io/) which has a hook so that any new content that goes into `docs/source` on the main repository will trigger a new build and publication of the doc.
 
 ## Conventions
 
@@ -12,7 +12,7 @@ The crux of the documentation is written in [reStructuredText](http://docutils.s
 - The main entry point is index.rst, so to add something into the Table of Contents you would simply modify that file in the same manner as all of the other topics. It's very self-explanatory once you look at it.
 - Relative links should be used whenever possible. The preferred syntax for this is: :doc:`anchor text <relativepath>` 
   Do not put the .rst suffix at the end of the filepath.
-- For non RST files, such as text files, MD or YAML files, link to the file on github, like this one for instance:https://github.com/xtario/xtar/blob/master/docs/README.md
+- For non RST files, such as text files, MD or YAML files, link to the file on github, like this one for instance:https://github.com/bithumbchina/Docs/blob/master/README.md
 
 Notes: The above means we have a dependency on the github mirror repository. Relative links are unfortunately not working on github when browsing through a RST file.
 
@@ -27,7 +27,7 @@ You can easily build your own staging repo following these steps:
 1. Go to [http://readthedocs.org](http://readthedocs.org/) and sign up for an account.
 2. Create a project. Your username will preface the URL and you may want to append `-BithumbChain` to ensure that you can distinguish between this and other docs that you need to create for other projects. So for example: `yourgithubid-xtar.readthedocs.io/en/latest`.
 3. Click `Admin`, click `Integrations`, click `Add integration`, choose `GitHub incoming webhook`, then click `Add integration`.
-4. Fork [Bithumb Chain on GitHub](https://github.com/bithumb-chain/BithumbChain).
+4. Fork [Bithumb Chain on GitHub](https://github.com/bithumbchina).
 5. From your fork, go to `Settings` in the upper right portion of the screen.
 6. Click `Webhooks`.
 7. Click `Add webhook`.
