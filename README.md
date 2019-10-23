@@ -25,7 +25,7 @@ Making any changes to the documentation will require you to test your changes by
 You can easily build your own staging repo following these steps:
 
 1. Go to [http://readthedocs.org](http://readthedocs.org/) and sign up for an account.
-2. Create a project. Your username will preface the URL and you may want to append `-BithumbChain` to ensure that you can distinguish between this and other docs that you need to create for other projects. So for example: `yourgithubid-xtar.readthedocs.io/en/latest`.
+2. Create a project. Your username will preface the URL and you may want to append `-BithumbChain` to ensure that you can distinguish between this and other docs that you need to create for other projects. So for example: `bithumbchain.readthedocs.io/zh_CN/latest`.
 3. Click `Admin`, click `Integrations`, click `Add integration`, choose `GitHub incoming webhook`, then click `Add integration`.
 4. Fork [Bithumb Chain on GitHub](https://github.com/bithumbchina).
 5. From your fork, go to `Settings` in the upper right portion of the screen.
@@ -39,7 +39,7 @@ Now anytime you modify or add documentation content to your fork, this URL will 
 
 ### Building the docs on your machine
 
-Here are the quick steps to achieve this on a local machine without depending on ReadTheDocs, starting from the main xtar directory. Note: you may need to adjust depending on your OS.
+Here are the quick steps to achieve this on a local machine without depending on ReadTheDocs, starting from the main bithumbchina directory. Note: you may need to adjust depending on your OS.
 
 ```
 sudo pip install Sphinx

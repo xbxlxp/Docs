@@ -7,9 +7,9 @@
 ===========================================
 钱包作为区块链的入口，目前Bithumb Chain官方仅支持桌面版钱包和手机钱包。桌面版钱包主要针对一些复杂的操作，除正常登录、交易外，会支持多签、账户升级、域名等操作；手机钱包主要支持手机扫描登录及交易等操作。同时其他第三方钱包也正在对接中，后续请关注公众号，对接完成会同步周知。
 
-- `桌面版钱包下载地址 <https://explorer.bithumb.network>`_ 
+- `桌面版钱包下载地址 <https://download.bithumb.network/desktop>`_ 
 
-- `手机钱包下载地址 <https://explorer.bithumb.network>`_ 
+- `手机钱包下载地址 <https://download.bithumb.network/mobile>`_ 
 
 ===========================================
 区块链浏览器
@@ -18,7 +18,7 @@
 
 - `主网浏览器 <https://explorer.bithumb.network>`_
 
-- `测试网浏览器 <https://xgalaxyexplorer.bithumb.network>`_
+- `测试网浏览器 <https://explorer.bithumb.network/testnet>`_
 
 =====================================
 Node RPC

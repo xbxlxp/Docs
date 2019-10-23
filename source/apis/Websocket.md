@@ -160,7 +160,7 @@ N/A
   "jsonrpc": "2.0", 
   "id": "1",
   "method": "ws.SubscribeContract",
-  "params":["xtar.system", "transfer"]
+  "params":["bithumbchain.system", "transfer"]
 }
 ```
 
@@ -198,7 +198,7 @@ N/A
   "jsonrpc": "2.0", 
   "id": "1",
   "method": "ws.UnsubscribeContract",
-  "params":["xtar.system", "transfer"]
+  "params":["bithumbchain.system", "transfer"]
 }
 ```
 

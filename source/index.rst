@@ -15,10 +15,10 @@ Bithumb Chain文档中心，包括入门介绍、功能介绍、Command Line Int
 
 翻译
 ========================
-本文档由社区志愿者翻译成多种语言，但是 `英语版本 <http://10.0.151.70/en/index.html>`_ 作为主要参考。
+本文档由社区志愿者翻译成多种语言，但是 `英语版本 <https://bithumbchain.readthedocs.io/en/latest/>`_ 作为主要参考。
 Community volunteers help translate this documentation into several languages. They have varying degrees of completeness and up-to-dateness. The English version stands as a reference.
 
-- `English <http://10.0.151.70/en/index.html>`_
+- `English <https://bithumbchain.readthedocs.io/en/latest/>`_
 
 网站文档
 ========================

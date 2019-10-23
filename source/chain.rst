@@ -6,7 +6,7 @@ Bithumb Chain介绍
 白皮书
 ============
 
-- `中文白皮书 <../latest/index.html>`_
+- `中文白皮书 <https://bithumb.network/wp/BithumbChain-WhitePaper-Cn.pdf>`_
 
 ============
 OBFT共识

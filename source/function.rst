@@ -10,7 +10,7 @@ Bithumb Chain功能
    functions/04dex.md
    functions/06global_params.md
    functions/07resource.md
-   functions/08name_service_v0.62.md
+   functions/08name_service.md
    functions/09ram.md
    functions/10dapp_name.md
    functions/11foundation_name.md
